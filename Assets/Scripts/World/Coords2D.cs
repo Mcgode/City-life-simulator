@@ -11,12 +11,17 @@ public struct Coords2D {
 		this.y = y;
 	}
 
+	public override string ToString ()
+	{
+		return "(" + x + ";" + y + ")";
+	}
+
 	public static Coords2D operator +(Coords2D c1, Coords2D c2) {
 		return new Coords2D (c1.x + c2.x, c1.y + c2.y);
 	}
 
-	public static Coords2D operator -(Coords2D c) {
-		return new Coords2D (-c.x, -c.y);
+	public static Coords2D operator -(Coords2D c1, Coords2D c2) {
+		return new Coords2D (c1.x - c2.x, c1.y - c2.y);
 	}
 
 	public static int operator *(Coords2D c1, Coords2D c2) {
@@ -26,5 +31,13 @@ public struct Coords2D {
 	public static Coords2D getCoords(GameObject obj) {
 		Vector3 pos = obj.transform.position;
 		return new Coords2D (Mathf.RoundToInt (pos.x), Mathf.RoundToInt (pos.y));
+	}
+
+	public List<Coords2D> squareTwoPoints(Coords2D other) {
+		Coords2D diff = other - this;
+		return new List<Coords2D> () {
+			this + new Coords2D (diff.x, 0),
+			this + new Coords2D (0, diff.y)
+		};
 	}
 }

@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntranceNode : WorldObject {
+public class EntranceNode : MonoBehaviour {
 
-	new void Awake() {
-		base.Awake ();
-	}
+
 
 }

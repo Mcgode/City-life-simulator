@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35176901}
   - component: {fileID: 35176902}
+  - component: {fileID: 35176903}
   m_Layer: 0
   m_Name: Road (35)
   m_TagString: Untagged
@@ -155,6 +156,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &35176903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35176900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &42089729
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 42089730}
   - component: {fileID: 42089731}
+  - component: {fileID: 42089732}
   m_Layer: 0
   m_Name: Road (25)
   m_TagString: Untagged
@@ -219,6 +232,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &42089732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 42089729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &59345037
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 85800495}
   - component: {fileID: 85800496}
+  - component: {fileID: 85800497}
   m_Layer: 0
   m_Name: Road (10)
   m_TagString: Untagged
@@ -514,6 +539,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &85800497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 85800494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &97761072
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97761073}
   - component: {fileID: 97761074}
+  - component: {fileID: 97761075}
   m_Layer: 0
   m_Name: Road (6)
   m_TagString: Untagged
@@ -578,6 +615,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &97761075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 97761072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &107723798
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 132785917}
   - component: {fileID: 132785918}
+  - component: {fileID: 132785919}
   m_Layer: 0
   m_Name: Road (18)
   m_TagString: Untagged
@@ -796,6 +845,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &132785919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132785916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &145358550
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 176903115}
   - component: {fileID: 176903116}
+  - component: {fileID: 176903117}
   m_Layer: 0
   m_Name: Road (27)
   m_TagString: Untagged
@@ -937,6 +998,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &176903117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176903114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &191595248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1095,7 @@ GameObject:
   m_Component:
   - component: {fileID: 196344011}
   - component: {fileID: 196344012}
+  - component: {fileID: 196344013}
   m_Layer: 0
   m_Name: Road (12)
   m_TagString: Untagged
@@ -1078,6 +1151,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &196344013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 196344010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &197981682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 197981683}
   - component: {fileID: 197981684}
+  - component: {fileID: 197981685}
   m_Layer: 0
   m_Name: Road (45)
   m_TagString: Untagged
@@ -1142,6 +1227,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &197981685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197981682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &219553078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 219553079}
   - component: {fileID: 219553080}
+  - component: {fileID: 219553081}
   m_Layer: 0
   m_Name: Road (20)
   m_TagString: Untagged
@@ -1206,6 +1303,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &219553081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 219553078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &221718442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,6 +1400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 287134495}
   - component: {fileID: 287134496}
+  - component: {fileID: 287134497}
   m_Layer: 0
   m_Name: Road (26)
   m_TagString: Untagged
@@ -1347,6 +1456,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &287134497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 287134494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &294520927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,8 +1603,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1674,6 +1794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 477274870}
   - component: {fileID: 477274871}
+  - component: {fileID: 477274872}
   m_Layer: 0
   m_Name: Road (43)
   m_TagString: Untagged
@@ -1729,6 +1850,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &477274872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 477274869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &482127984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,6 +2101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529811271}
   - component: {fileID: 529811272}
+  - component: {fileID: 529811273}
   m_Layer: 0
   m_Name: Road (4)
   m_TagString: Untagged
@@ -2024,6 +2157,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &529811273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529811270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &553224148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,6 +2288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581173007}
   - component: {fileID: 581173008}
+  - component: {fileID: 581173009}
   m_Layer: 0
   m_Name: Road (54)
   m_TagString: Untagged
@@ -2199,6 +2344,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &581173009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 581173006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &595237899
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,6 +2441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 608056633}
   - component: {fileID: 608056634}
+  - component: {fileID: 608056635}
   m_Layer: 0
   m_Name: Road (14)
   m_TagString: Untagged
@@ -2340,6 +2497,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &608056635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 608056632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &612462907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2349,6 +2517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 612462908}
   - component: {fileID: 612462909}
+  - component: {fileID: 612462910}
   m_Layer: 0
   m_Name: Road (32)
   m_TagString: Untagged
@@ -2404,6 +2573,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &612462910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 612462907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &647810427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2413,6 +2593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 647810428}
   - component: {fileID: 647810429}
+  - component: {fileID: 647810430}
   m_Layer: 0
   m_Name: Road (37)
   m_TagString: Untagged
@@ -2468,6 +2649,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &647810430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 647810427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &655252389
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,6 +2669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 655252390}
   - component: {fileID: 655252391}
+  - component: {fileID: 655252392}
   m_Layer: 0
   m_Name: Road (29)
   m_TagString: Untagged
@@ -2532,6 +2725,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &655252392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 655252389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &671271085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2763,6 +2967,11 @@ SpriteRenderer:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!4 &698309010 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4728350677811008, guid: 9edcb585fbe8b488f8f039a08bf6cae2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1542542062}
 --- !u!1 &762301922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,6 +2981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 762301923}
   - component: {fileID: 762301924}
+  - component: {fileID: 762301925}
   m_Layer: 0
   m_Name: Road (42)
   m_TagString: Untagged
@@ -2827,6 +3037,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &762301925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 762301922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &770890355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2836,6 +3057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 770890356}
   - component: {fileID: 770890357}
+  - component: {fileID: 770890358}
   m_Layer: 0
   m_Name: Road (19)
   m_TagString: Untagged
@@ -2891,6 +3113,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &770890358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 770890355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &775773558
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,6 +3392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 803775085}
   - component: {fileID: 803775086}
+  - component: {fileID: 803775087}
   m_Layer: 0
   m_Name: Road (36)
   m_TagString: Untagged
@@ -3214,6 +3448,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &803775087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 803775084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &874958829
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,6 +3944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 947738720}
   - component: {fileID: 947738721}
+  - component: {fileID: 947738722}
   m_Layer: 0
   m_Name: Road (13)
   m_TagString: Untagged
@@ -3754,6 +4000,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &947738722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947738719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &967253058
 GameObject:
   m_ObjectHideFlags: 0
@@ -3840,6 +4097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1024703222}
   - component: {fileID: 1024703223}
+  - component: {fileID: 1024703224}
   m_Layer: 0
   m_Name: Road (23)
   m_TagString: Untagged
@@ -3895,6 +4153,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1024703224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1024703221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1039982022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3932,6 +4201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056021309}
   - component: {fileID: 1056021310}
+  - component: {fileID: 1056021311}
   m_Layer: 0
   m_Name: Road (53)
   m_TagString: Untagged
@@ -3987,6 +4257,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1056021311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056021308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1067918387
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,6 +4277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1067918388}
   - component: {fileID: 1067918389}
+  - component: {fileID: 1067918390}
   m_Layer: 0
   m_Name: Road (55)
   m_TagString: Untagged
@@ -4051,6 +4333,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1067918390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1067918387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1083231677
 GameObject:
   m_ObjectHideFlags: 0
@@ -4137,6 +4430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1096867545}
   - component: {fileID: 1096867546}
+  - component: {fileID: 1096867547}
   m_Layer: 0
   m_Name: Road (41)
   m_TagString: Untagged
@@ -4192,6 +4486,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1096867547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1096867544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1106118745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4201,6 +4506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1106118746}
   - component: {fileID: 1106118747}
+  - component: {fileID: 1106118748}
   m_Layer: 0
   m_Name: Road (47)
   m_TagString: Untagged
@@ -4256,6 +4562,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1106118748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106118745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1112144895
 GameObject:
   m_ObjectHideFlags: 0
@@ -4454,6 +4771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1125252847}
   - component: {fileID: 1125252848}
+  - component: {fileID: 1125252849}
   m_Layer: 0
   m_Name: Road (8)
   m_TagString: Untagged
@@ -4509,6 +4827,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1125252849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1125252846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1127721965
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,6 +5078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1162434882}
   - component: {fileID: 1162434883}
+  - component: {fileID: 1162434884}
   m_Layer: 0
   m_Name: Road (38)
   m_TagString: Untagged
@@ -4804,6 +5134,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1162434884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162434881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1169311907
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,6 +5231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1181584363}
   - component: {fileID: 1181584364}
+  - component: {fileID: 1181584365}
   m_Layer: 0
   m_Name: Road (22)
   m_TagString: Untagged
@@ -4945,6 +5287,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1181584365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1181584362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1187947498
 GameObject:
   m_ObjectHideFlags: 0
@@ -5065,6 +5418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1227835985}
   - component: {fileID: 1227835986}
+  - component: {fileID: 1227835987}
   m_Layer: 0
   m_Name: Road (16)
   m_TagString: Untagged
@@ -5120,6 +5474,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1227835987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1227835984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1245992417
 GameObject:
   m_ObjectHideFlags: 0
@@ -5129,6 +5494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1245992418}
   - component: {fileID: 1245992419}
+  - component: {fileID: 1245992420}
   m_Layer: 0
   m_Name: Road (48)
   m_TagString: Untagged
@@ -5184,6 +5550,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1245992420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1245992417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1317283808
 GameObject:
   m_ObjectHideFlags: 0
@@ -5193,6 +5570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1317283809}
   - component: {fileID: 1317283810}
+  - component: {fileID: 1317283811}
   m_Layer: 0
   m_Name: Road (28)
   m_TagString: Untagged
@@ -5248,6 +5626,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1317283811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1317283808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1318083589
 GameObject:
   m_ObjectHideFlags: 0
@@ -5257,6 +5646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1318083590}
   - component: {fileID: 1318083591}
+  - component: {fileID: 1318083592}
   m_Layer: 0
   m_Name: Road (31)
   m_TagString: Untagged
@@ -5312,6 +5702,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1318083592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1318083589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1326101923
 GameObject:
   m_ObjectHideFlags: 0
@@ -5475,6 +5876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1348427497}
   - component: {fileID: 1348427498}
+  - component: {fileID: 1348427499}
   m_Layer: 0
   m_Name: Road (11)
   m_TagString: Untagged
@@ -5530,6 +5932,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1348427499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1348427496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1372264130
 GameObject:
   m_ObjectHideFlags: 0
@@ -5539,6 +5952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1372264131}
   - component: {fileID: 1372264132}
+  - component: {fileID: 1372264133}
   m_Layer: 0
   m_Name: Road (39)
   m_TagString: Untagged
@@ -5594,6 +6008,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1372264133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1372264130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1404974417
 GameObject:
   m_ObjectHideFlags: 0
@@ -5603,6 +6028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1404974418}
   - component: {fileID: 1404974419}
+  - component: {fileID: 1404974420}
   m_Layer: 0
   m_Name: Road (5)
   m_TagString: Untagged
@@ -5658,6 +6084,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1404974420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1404974417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1435819027
 GameObject:
   m_ObjectHideFlags: 0
@@ -5667,6 +6104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435819028}
   - component: {fileID: 1435819029}
+  - component: {fileID: 1435819030}
   m_Layer: 0
   m_Name: Road (21)
   m_TagString: Untagged
@@ -5722,6 +6160,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1435819030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1435819027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1444283141
 GameObject:
   m_ObjectHideFlags: 0
@@ -5839,6 +6288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1454584764}
   - component: {fileID: 1454584765}
+  - component: {fileID: 1454584766}
   m_Layer: 0
   m_Name: Road (1)
   m_TagString: Untagged
@@ -5894,6 +6344,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1454584766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1454584763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1473702581
 GameObject:
   m_ObjectHideFlags: 0
@@ -5935,6 +6396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1475361139}
   - component: {fileID: 1475361140}
+  - component: {fileID: 1475361141}
   m_Layer: 0
   m_Name: Road (9)
   m_TagString: Untagged
@@ -5990,6 +6452,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1475361141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1475361138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1478976057
 GameObject:
   m_ObjectHideFlags: 0
@@ -5999,6 +6472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1478976058}
   - component: {fileID: 1478976059}
+  - component: {fileID: 1478976060}
   m_Layer: 0
   m_Name: Road (40)
   m_TagString: Untagged
@@ -6054,6 +6528,63 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1478976060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1478976057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1542542062
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1809875720}
+    m_Modifications:
+    - target: {fileID: 4728350677811008, guid: 9edcb585fbe8b488f8f039a08bf6cae2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728350677811008, guid: 9edcb585fbe8b488f8f039a08bf6cae2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728350677811008, guid: 9edcb585fbe8b488f8f039a08bf6cae2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728350677811008, guid: 9edcb585fbe8b488f8f039a08bf6cae2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728350677811008, guid: 9edcb585fbe8b488f8f039a08bf6cae2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728350677811008, guid: 9edcb585fbe8b488f8f039a08bf6cae2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728350677811008, guid: 9edcb585fbe8b488f8f039a08bf6cae2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728350677811008, guid: 9edcb585fbe8b488f8f039a08bf6cae2, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753787169187118, guid: 9edcb585fbe8b488f8f039a08bf6cae2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9edcb585fbe8b488f8f039a08bf6cae2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1551345059
 GameObject:
   m_ObjectHideFlags: 0
@@ -6140,6 +6671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583258904}
   - component: {fileID: 1583258905}
+  - component: {fileID: 1583258906}
   m_Layer: 0
   m_Name: Road (50)
   m_TagString: Untagged
@@ -6195,6 +6727,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1583258906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1583258903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1641845789
 GameObject:
   m_ObjectHideFlags: 0
@@ -6281,6 +6824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1666138680}
   - component: {fileID: 1666138681}
+  - component: {fileID: 1666138682}
   m_Layer: 0
   m_Name: Road (44)
   m_TagString: Untagged
@@ -6336,6 +6880,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1666138682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1666138679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1673020897
 GameObject:
   m_ObjectHideFlags: 0
@@ -6345,6 +6900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673020898}
   - component: {fileID: 1673020899}
+  - component: {fileID: 1673020900}
   m_Layer: 0
   m_Name: Road (51)
   m_TagString: Untagged
@@ -6400,6 +6956,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1673020900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673020897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1681297363
 GameObject:
   m_ObjectHideFlags: 0
@@ -6409,6 +6976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1681297364}
   - component: {fileID: 1681297365}
+  - component: {fileID: 1681297366}
   m_Layer: 0
   m_Name: Road (33)
   m_TagString: Untagged
@@ -6464,6 +7032,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1681297366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1681297363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1698198473
 GameObject:
   m_ObjectHideFlags: 0
@@ -6473,6 +7052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698198474}
   - component: {fileID: 1698198475}
+  - component: {fileID: 1698198476}
   m_Layer: 0
   m_Name: Road (52)
   m_TagString: Untagged
@@ -6528,6 +7108,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1698198476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1698198473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1729003612
 GameObject:
   m_ObjectHideFlags: 0
@@ -6728,6 +7319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762869371}
   - component: {fileID: 1762869372}
+  - component: {fileID: 1762869373}
   m_Layer: 0
   m_Name: Road (7)
   m_TagString: Untagged
@@ -6783,6 +7375,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1762869373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1762869370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1802667525
 GameObject:
   m_ObjectHideFlags: 0
@@ -6792,6 +7395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1802667526}
   - component: {fileID: 1802667527}
+  - component: {fileID: 1802667528}
   m_Layer: 0
   m_Name: Road (46)
   m_TagString: Untagged
@@ -6847,6 +7451,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1802667528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802667525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1805705308
 GameObject:
   m_ObjectHideFlags: 0
@@ -6939,6 +7554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807368373}
   - component: {fileID: 1807368374}
+  - component: {fileID: 1807368375}
   m_Layer: 0
   m_Name: Road (34)
   m_TagString: Untagged
@@ -6994,6 +7610,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1807368375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1807368372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1809875718
 GameObject:
   m_ObjectHideFlags: 0
@@ -7045,6 +7672,7 @@ Transform:
   - {fileID: 1805705309}
   - {fileID: 1039982023}
   - {fileID: 2075983449}
+  - {fileID: 698309010}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7057,6 +7685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816450460}
   - component: {fileID: 1816450461}
+  - component: {fileID: 1816450462}
   m_Layer: 0
   m_Name: Road (49)
   m_TagString: Untagged
@@ -7112,6 +7741,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1816450462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1816450459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1828176990
 GameObject:
   m_ObjectHideFlags: 0
@@ -7121,6 +7761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1828176991}
   - component: {fileID: 1828176992}
+  - component: {fileID: 1828176993}
   m_Layer: 0
   m_Name: Road (3)
   m_TagString: Untagged
@@ -7176,6 +7817,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1828176993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828176990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1834398102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7185,6 +7837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1834398103}
   - component: {fileID: 1834398104}
+  - component: {fileID: 1834398105}
   m_Layer: 0
   m_Name: Road (24)
   m_TagString: Untagged
@@ -7240,6 +7893,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1834398105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1834398102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1844143698
 GameObject:
   m_ObjectHideFlags: 0
@@ -7280,6 +7944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916088389}
   - component: {fileID: 1916088390}
+  - component: {fileID: 1916088391}
   m_Layer: 0
   m_Name: Road (15)
   m_TagString: Untagged
@@ -7335,6 +8000,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1916088391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1916088388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1954911431
 GameObject:
   m_ObjectHideFlags: 0
@@ -7344,6 +8020,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1954911432}
   - component: {fileID: 1954911433}
+  - component: {fileID: 1954911434}
   m_Layer: 0
   m_Name: Road (2)
   m_TagString: Untagged
@@ -7399,6 +8076,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1954911434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1954911431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1961690710
 GameObject:
   m_ObjectHideFlags: 0
@@ -7408,6 +8096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1961690711}
   - component: {fileID: 1961690712}
+  - component: {fileID: 1961690713}
   m_Layer: 0
   m_Name: Road (17)
   m_TagString: Untagged
@@ -7463,6 +8152,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1961690713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1961690710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1974322185
 GameObject:
   m_ObjectHideFlags: 0
@@ -7549,6 +8249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1997933188}
   - component: {fileID: 1997933189}
+  - component: {fileID: 1997933190}
   m_Layer: 0
   m_Name: Road (30)
   m_TagString: Untagged
@@ -7604,6 +8305,17 @@ SpriteRenderer:
   m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1997933190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997933187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2049784231
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,10 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Building\Building.cs" />
-     <Compile Include="Assets\Scripts\Building\BuildingTypes.cs" />
+     <Compile Include="Assets\Scripts\Building\BuildingType.cs" />
      <Compile Include="Assets\Scripts\World\Coords2D.cs" />
      <Compile Include="Assets\Scripts\World\EntranceNode.cs" />
-     <Compile Include="Assets\Scripts\World\ObjectTypes.cs" />
      <Compile Include="Assets\Scripts\World\Road.cs" />
      <Compile Include="Assets\Scripts\World\World.cs" />
      <Compile Include="Assets\Scripts\World\WorldObject.cs" />
