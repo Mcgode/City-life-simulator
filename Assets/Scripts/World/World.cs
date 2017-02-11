@@ -4,27 +4,43 @@ using UnityEngine;
 
 public class World : MonoBehaviour {
 
-	List<Building> buildings;
-	List<Node> entrances;
+	Dictionary<int,Dictionary<int,WorldObject>> objects = new Dictionary<int,Dictionary<int,WorldObject>>();
+	List<EntranceNode> entrances = new List<EntranceNode> ();
 
-	void registerObject(Object obj, ObjectType type) {
 
-		switch (type) 
-		{
-		case ObjectType.Building:
-			if (obj as Building) { buildings.Add(obj as Building); }
-			break;
-		case ObjectType.Entrance:
-			if (obj as Node) { 
-				entrances.Add(obj as Node); 
-			}
-			break;
+	public void registerObject(WorldObject obj) 
+	{
+		Coords2D obj_coords = Coords2D.getCoords (obj.gameObject);
+		addObj (obj, obj_coords);
+		if (obj is EntranceNode) {
+			entrances.Add (obj as EntranceNode);
 		}
 	}
 
-	void Start() {
+
+	private void addObj(WorldObject obj, Coords2D coords)
+	{
+		if (!objects.ContainsKey(coords.x)) 
+		{
+			objects.Add (coords.x, new Dictionary<int,WorldObject> ());
+		}
+
+		if (!objects [coords.x].ContainsKey (coords.y)) 
+		{
+			objects [coords.x].Add (coords.y, obj);
+		}
+	}
+
+
+	void Start()
+	{
 		print("Hello world");
 		print(new Coords2D(1,1) * new Coords2D(2,2));
+	}
+
+
+	void Update() 
+	{
 	}
 
 

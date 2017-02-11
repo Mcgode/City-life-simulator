@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : WorldObject 
-{
-
-	public BuildingType type;
+public class EntranceNode : WorldObject {
 
 	new void Awake() {
 		base.Awake ();

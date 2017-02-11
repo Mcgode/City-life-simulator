@@ -23,4 +23,8 @@ public struct Coords2D {
 		return c1.x * c2.x +  c1.y * c2.y;
 	}
 
+	public static Coords2D getCoords(GameObject obj) {
+		Vector3 pos = obj.transform.position;
+		return new Coords2D (Mathf.RoundToInt (pos.x), Mathf.RoundToInt (pos.y));
+	}
 }

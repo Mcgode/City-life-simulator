@@ -49,9 +49,11 @@
      <Compile Include="Assets\Scripts\Building\Building.cs" />
      <Compile Include="Assets\Scripts\Building\BuildingTypes.cs" />
      <Compile Include="Assets\Scripts\World\Coords2D.cs" />
-     <Compile Include="Assets\Scripts\World\Node.cs" />
+     <Compile Include="Assets\Scripts\World\EntranceNode.cs" />
      <Compile Include="Assets\Scripts\World\ObjectTypes.cs" />
+     <Compile Include="Assets\Scripts\World\Road.cs" />
      <Compile Include="Assets\Scripts\World\World.cs" />
+     <Compile Include="Assets\Scripts\World\WorldObject.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
