@@ -52,4 +52,26 @@ public struct Coords2D {
 			this + new Coords2D (0, diff.y)
 		};
 	}
+
+
+	// Returns the distance to the origin (0, 0)
+	public float norm() {
+		return Mathf.Sqrt (this.x * this.x + this.y * this.y);
+	}
+
+
+	// Returns the distance between two coordinates.
+	public float distance(Coords2D other_coords) {
+		Coords2D diff = this - other_coords;
+		return diff.norm ();
+	}
+
+
+	// Returns the direction which corresponds to the coordinates (needs to have a norm of less than 1) 
+	public Direction getDirection() {
+		if (this.norm () > 1.0) { return Direction.None; }
+		if (this.x != 0) { if (this.x > 0) { return Direction.Right; } else { return Direction.Left; } }
+		if (this.y != 0) { if (this.y > 0) { return Direction.Up; } else { return Direction.Down; } }
+		return Direction.None;
+	}
 }

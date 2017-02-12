@@ -48,7 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Building\Building.cs" />
      <Compile Include="Assets\Scripts\Building\BuildingType.cs" />
+     <Compile Include="Assets\Scripts\Building\WholeBuilding.cs" />
      <Compile Include="Assets\Scripts\World\Coords2D.cs" />
+     <Compile Include="Assets\Scripts\World\Directions.cs" />
      <Compile Include="Assets\Scripts\World\EntranceNode.cs" />
      <Compile Include="Assets\Scripts\World\Road.cs" />
      <Compile Include="Assets\Scripts\World\World.cs" />

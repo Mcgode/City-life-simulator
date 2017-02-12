@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : WorldObject 
-{
-	new void Awake() {
-		base.Awake ();
-	}
+public enum Direction {
+	Up,
+	Right,
+	Down,
+	Left,
+	None
 }

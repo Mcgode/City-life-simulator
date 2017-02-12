@@ -105,10 +105,9 @@ public class World : MonoBehaviour {
 	}
 
 
-	// Start program, classic. We launch our map out from here 
+	// Start program, classic. We launch the 'map out' process from here 
 	void Start()
 	{
-		foreach (Coords2D coord in corners) { print (coord.ToString()); } 
 		mapOutCornersOfWorldMap ();
 		nodes = new List<Coords2D> (new HashSet<Coords2D>(nodes));
 	}
