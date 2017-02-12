@@ -11,13 +11,18 @@ public class World : MonoBehaviour {
 	List<EntranceNode> entrances = new List<EntranceNode> ();
 
 	// Here are stored the corner nodes, for pathfinding.
-	List<Coords2D> nodes = new List<Coords2D> ();
+	List<Coords2D> cornerNodes = new List<Coords2D> ();
 
 
 	// Here are the lists containing adjacent coords, to make it easier to store the coordinates.
 	List<Coords2D> corners = new List<Coords2D>() { new Coords2D(1, 1), new Coords2D(-1, 1), new Coords2D(-1, -1), new Coords2D(1, -1) };
 	List<Coords2D> horizontalAlign = new List<Coords2D>() { new Coords2D(1, 0), new Coords2D(-1, 0) };
 	List<Coords2D> verticalAlign = new List<Coords2D>() {new Coords2D(0, 1), new Coords2D(0, -1) };
+
+
+	// Here we store all of our nodes as Node objects, and the links between them.
+	List<Node> nodes = new List<Node> ();
+	List<List<KeyValuePair<int, float>>> links = new List<List<KeyValuePair<int, float>>> ();
 
 
 	// Call this function to register a Road or a Building object, to map their coordinates.
@@ -27,8 +32,13 @@ public class World : MonoBehaviour {
 		addObj (obj, obj_coords);
 	}
 
-	// Call this function to register the entrance nodes.
-	public void registerEntrance(EntranceNode node) { entrances.Add (node); } 
+
+	// Call this function to register the entrance nodes. The entrance needs to have a direction and a linked building
+	public void registerEntrance(EntranceNode node) { 
+		if (node.buildingEntranceDirection != Direction.None && node.linkedBuilding) {
+			entrances.Add (node); 
+		}
+	} 
 
 
 	// Private method for adding a WorldObject in the objects dictionary without some "no such key" error.
@@ -47,7 +57,7 @@ public class World : MonoBehaviour {
 
 
 	// Maps out the different corners of buildings which correspond to a road. Necessary step for the pathfinding mapping out of the map.
-	void mapOutCornersOfWorldMap() 
+	private void mapOutCornersOfWorldMap() 
 	{
 		// We go through all the roads and the buildings
 		foreach (int x in objects.Keys) 
@@ -69,10 +79,10 @@ public class World : MonoBehaviour {
 							Coords2D checking_coords = coord + new Coords2D (x, y);
 							if ((get(checking_coords) as Road) && isReallyCorner(new Coords2D (x, y), checking_coords)) 
 							{
-								nodes.Add (checking_coords);
+								cornerNodes.Add (checking_coords);
 								// Displays corner, for debug purpose
 								GameObject node = pointAt (checking_coords);
-								(node.GetComponent (typeof(SpriteRenderer)) as SpriteRenderer).color = (objects[x][y].gameObject.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer).color;
+								node.GetComponent<SpriteRenderer>().color = objects[x][y].gameObject.GetComponent<SpriteRenderer>().color;
 							}
 						}
 					}
@@ -106,17 +116,18 @@ public class World : MonoBehaviour {
 
 
 	// Start program, classic. We launch the 'map out' process from here 
-	void Start()
+	private void Start()
 	{
 		mapOutCornersOfWorldMap ();
-		nodes = new List<Coords2D> (new HashSet<Coords2D>(nodes));
+		cornerNodes = new List<Coords2D> (new HashSet<Coords2D>(cornerNodes));
+		figureOutNodeMapping ();
 	}
 
 
 	// Displays a circle node at the given coords, and returns it
-	private GameObject pointAt(Coords2D coords) {
+	private GameObject pointAt(Coords2D coords, float offset = -1.0f) {
 		GameObject node_obj = Instantiate (Resources.Load("Node", typeof(GameObject))) as GameObject;
-		node_obj.transform.position = new Vector3 (coords.x, coords.y, -1);
+		node_obj.transform.position = new Vector3 (coords.x, coords.y, offset);
 		return node_obj;
 	}
 
@@ -129,6 +140,74 @@ public class World : MonoBehaviour {
 			}
 		}
 		return true;
+	}
+
+
+	// Declares the nodes and determines the links between them (corner nodes and entrance nodes).
+	private void figureOutNodeMapping() {
+		foreach (EntranceNode entranceNode in entrances) {
+			Node new_node = new Node(Coords2D.getCoords(entranceNode.gameObject), entranceNode.linkedBuilding);
+			makeLinks (new_node);
+			GameObject node = pointAt (new_node.coordinates, -1.2f);
+			node.GetComponent<SpriteRenderer>().color = new Color(1, 0.7f, 0.7f);
+		}
+		foreach (Coords2D corner_node in cornerNodes) {
+			if (!Node.isNodeAlreadyInList (nodes, corner_node)) {
+				Node new_node = new Node(corner_node, null);
+				makeLinks (new_node);
+			}
+		}
+
+		for (int i=0; i < links.Count; i++) {
+			foreach (KeyValuePair<int, float> link in links[i]) {
+				pointAt (nodes[i].coordinates);
+				displayLine (nodes [link.Key].coordinates, nodes [i].coordinates);
+			}
+		}
+	}
+
+
+	// Calculates the possible links of new node with the other nodes. 
+	private void makeLinks(Node new_node) {
+		List<KeyValuePair<int,float>> new_links = new List<KeyValuePair<int, float>> ();
+		for (int i = 0; i < nodes.Count; i++) {
+			Node node = nodes [i];
+			Coords2D c1 = new_node.coordinates, c2 = node.coordinates;
+			if (raycast(c1, c2)) {
+				KeyValuePair<int,float> new_kvp = new KeyValuePair<int,float> (nodes.Count, new_node.coordinates.distance (node.coordinates));
+				new_links.Add (new_kvp);
+				links [i].Add (new_kvp);
+			}
+		}
+		links.Add (new_links);
+		nodes.Add (new_node);
+	}
+
+
+	// Returns true if there are no buildings on the direct line between two points.
+	private bool raycast(Coords2D depart, Coords2D arrival) {
+		Coords2D diff = arrival - depart;
+		int a = diff.x, b = diff.y;
+		if (a == 0 || b == 0) {
+			RaycastHit2D hit = Physics2D.Raycast (depart.toVector2(), diff.toVector2().normalized, depart.distance(arrival));
+			return !hit;
+		} else {
+			int a_sign = a / Mathf.Abs (a), b_sign = b / Mathf.Abs (b);
+			Vector2 depart_1 = depart.toVector2 () + new Vector2 (.49f * -a_sign, .49f * b_sign);
+			RaycastHit2D hit_1 = Physics2D.Raycast (depart_1, diff.toVector2().normalized, depart.distance(arrival)); 
+			Vector2 depart_2 = depart.toVector2 () + new Vector2 (.49f * a_sign, .49f * -b_sign);
+			RaycastHit2D hit_2 = Physics2D.Raycast (depart_2, diff.toVector2().normalized, depart.distance(arrival));
+			return !hit_1 && !hit_2;
+		}
+	}
+
+
+	// Displays a line between c1 and c2.
+	private void displayLine(Coords2D c1, Coords2D c2) {
+		GameObject line_obj = Instantiate (Resources.Load("Line", typeof(GameObject))) as GameObject;
+		line_obj.transform.position = new Vector3 (((float)(c1.x + c2.x)) / 2f, ((float)(c1.y + c2.y)) / 2f, -0.5f);
+		line_obj.transform.localScale = new Vector3(0.1f, c1.distance (c2), 1.0f);
+		line_obj.transform.rotation = Quaternion.Euler ( new Vector3(0f, 0f, Vector2.Angle(new Vector2(0, 1), (c2 - c1).toVector2())) ); 
 	}
 
 }

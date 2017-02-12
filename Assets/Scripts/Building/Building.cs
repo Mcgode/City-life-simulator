@@ -6,5 +6,6 @@ public class Building : WorldObject
 {
 	new void Awake() {
 		base.Awake ();
+		gameObject.AddComponent<BoxCollider2D> ();
 	}
 }

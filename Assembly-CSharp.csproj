@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\World\Coords2D.cs" />
      <Compile Include="Assets\Scripts\World\Directions.cs" />
      <Compile Include="Assets\Scripts\World\EntranceNode.cs" />
+     <Compile Include="Assets\Scripts\World\Node.cs" />
      <Compile Include="Assets\Scripts\World\Road.cs" />
      <Compile Include="Assets\Scripts\World\World.cs" />
      <Compile Include="Assets\Scripts\World\WorldObject.cs" />

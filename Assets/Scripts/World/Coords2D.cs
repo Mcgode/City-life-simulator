@@ -32,6 +32,26 @@ public struct Coords2D {
 		return c1.x * c2.x +  c1.y * c2.y;
 	}
 
+	public override int GetHashCode ()
+	{
+		return this.x + this.y;
+	}
+
+	public override bool Equals(object obj) {
+		if (obj.GetType() == typeof(Coords2D)) {
+			return ((Coords2D)obj).x == this.x && ((Coords2D)obj).y == this.y;
+		}
+		return false;
+	}
+
+	public static bool operator ==(Coords2D c1, Coords2D c2) {
+		return c1.Equals (c2);
+	}
+
+	public static bool operator !=(Coords2D c1, Coords2D c2) {
+		return !(c1.Equals (c2));
+	}
+
 
 	// Returns the 2D coords of the given game object. 
 	public static Coords2D getCoords(GameObject obj) {
@@ -73,5 +93,9 @@ public struct Coords2D {
 		if (this.x != 0) { if (this.x > 0) { return Direction.Right; } else { return Direction.Left; } }
 		if (this.y != 0) { if (this.y > 0) { return Direction.Up; } else { return Direction.Down; } }
 		return Direction.None;
+	}
+
+	public Vector2 toVector2() {
+		return new Vector2 (this.x, this.y);
 	}
 }
