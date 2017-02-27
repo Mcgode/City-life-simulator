@@ -21,7 +21,7 @@ public class World : MonoBehaviour {
 
 
 	// Here we store all of our nodes as Node objects, and the links between them.
-	List<Node> nodes = new List<Node> ();
+	public List<Node> nodes = new List<Node> ();
 	List<List<KeyValuePair<int, float>>> links = new List<List<KeyValuePair<int, float>>> ();
 
 
@@ -110,7 +110,7 @@ public class World : MonoBehaviour {
 	   Checked coords are in the middle
 		   R R R				R B	R				R R R						Basically, if there is a vertical or an horizontal shape, it does'nt work 		
 		   R B B  : Ok			R B R  : Nope		B B B  : Nope
-		   R B B				R B R				R R R					*/
+		   R B B				R B R				R R R																									*/
 	private bool buildingPartHasPotentialCorners (Coords2D coords) 
 	{
 		bool vertical_ok = (get(coords + verticalAlign[0]) as Building) && (get(coords + verticalAlign[1]) as Building);
@@ -132,6 +132,24 @@ public class World : MonoBehaviour {
 		mapOutCornersOfWorldMap ();
 		cornerNodes = new List<Coords2D> (new HashSet<Coords2D>(cornerNodes));
 		figureOutNodeMapping ();
+		for (int i = 0; i < node_display_parent.transform.childCount; i++) {
+			GameObject child = node_display_parent.transform.GetChild (i).gameObject;
+			if (child.name.Contains("Node")) {
+				string name = child.name;
+				child.name = "No name";
+				while (node_display_parent.transform.FindChild(name)) {
+					DestroyImmediate (node_display_parent.transform.FindChild (name).gameObject);
+				}
+				child.name = name;
+			}
+		}
+		for (int i = 0; i < nodes.Count; i++) {
+			string node_string = i.ToString() + " : " + nodes[i].coordinates.ToString() + " [";
+			foreach (KeyValuePair<int, float> link in links[i]) {
+				node_string += link.Key.ToString() + " (" + link.Value.ToString() + "), ";
+			}
+			print (node_string + "]");
+		}
 	}
 
 
@@ -222,6 +240,25 @@ public class World : MonoBehaviour {
 		line_obj.transform.position = new Vector3 (((float)(c1.x + c2.x)) / 2f, ((float)(c1.y + c2.y)) / 2f, -0.5f);
 		line_obj.transform.localScale = new Vector3(0.1f, c1.distance (c2), 1.0f);
 		line_obj.transform.rotation = Quaternion.Euler ( new Vector3(0f, 0f, c1.angle(c2, -90f) )); 
+	}
+
+
+	public List<Coords2D> pathfindFromCoordinates(Coords2D c1, Coords2D c2) {
+		int i1 = 0, i2 = 0;
+		for (int i = 0; i < nodes.Count; i++) {
+			if (nodes [i].coordinates == c1) { i1 = i; }
+			if (nodes [i].coordinates == c2) { i2 = i; }
+		}
+		List<Coords2D> coords = new List<Coords2D>();
+		foreach (int index in pathfindFromIndexes (i1, i2)) {
+			coords.Add (nodes [index].coordinates);
+		}
+		return coords;
+	}
+
+
+	public List<int> pathfindFromIndexes(int depart, int arrival) {
+		return GraphTools.getShortestDistanceToNodeList (links, depart, new List<int> () { arrival });
 	}
 
 }

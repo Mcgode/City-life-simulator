@@ -21,15 +21,9 @@ public class GraphTools : MonoBehaviour
 		path.Add (depart_index, new List<int>() { depart_index });
 
 		for (int i = 0; i < node_links.Count; i++) { 
-			if (i == depart_index) 
-			{ 
-				node_status.Add (0); 
-			} 
-			else
-			{ 
-				node_status.Add(2); 
-			} 
+			node_status.Add (0);
 		}
+		node_status [depart_index] = 2;
 
 		foreach (KeyValuePair<int, float> kvp in node_links[depart_index]) {
 			neighbours.Add (kvp.Key);
@@ -58,11 +52,10 @@ public class GraphTools : MonoBehaviour
 
 			// Check for new neighbours or new closest distance to start point thanks to the newly reached node
 			foreach (KeyValuePair<int, float> link in node_links[best_neighbour]) {
-				print (link.Key);
-				if (node_status[link.Key] < 2) {
+				if (node_status[link.Key] < 2) { 
 					if (node_status[link.Key] == 1) {
 						if (total_distance [link.Key] > shortest_distance + link.Value) {
-							total_distance [link.Key] = shortest_distance;
+							total_distance [link.Key] = shortest_distance + link.Value;
 							path [link.Key] = path [best_neighbour].GetRange (0, path [best_neighbour].Count);
 							path [link.Key].Add (link.Key);
 						}
@@ -75,6 +68,7 @@ public class GraphTools : MonoBehaviour
 					}
 				}
 			}
+
 			if (target_nodes.Contains (best_neighbour)) {
 				return path [best_neighbour];
 			}
