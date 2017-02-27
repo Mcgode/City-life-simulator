@@ -132,7 +132,6 @@ public class World : MonoBehaviour {
 		mapOutCornersOfWorldMap ();
 		cornerNodes = new List<Coords2D> (new HashSet<Coords2D>(cornerNodes));
 		figureOutNodeMapping ();
-		node_display_parent.SetActive (true);
 	}
 
 

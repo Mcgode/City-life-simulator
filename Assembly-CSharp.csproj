@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Citizen\CitizenAI.cs" />
      <Compile Include="Assets\Scripts\General\GraphTools.cs" />
      <Compile Include="Assets\Scripts\User Interaction\CameraInteraction.cs" />
+     <Compile Include="Assets\Scripts\User Interaction\CentralButtonClickManager.cs" />
      <Compile Include="Assets\Scripts\User Interaction\NodeInteraction.cs" />
      <Compile Include="Assets\Scripts\World\Coords2D.cs" />
      <Compile Include="Assets\Scripts\World\Directions.cs" />
