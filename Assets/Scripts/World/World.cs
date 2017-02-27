@@ -121,6 +121,18 @@ public class World : MonoBehaviour {
 		mapOutCornersOfWorldMap ();
 		cornerNodes = new List<Coords2D> (new HashSet<Coords2D>(cornerNodes));
 		figureOutNodeMapping ();
+		for (int i = 0; i < nodes.Count; i++) {
+			string node_string = i.ToString() + " : " + nodes[i].coordinates.ToString() + " [";
+			foreach (KeyValuePair<int, float> link in links[i]) {
+				node_string += link.Key.ToString() + ", ";
+			}
+			print (node_string + "]");
+		}
+		string path = "Path from " + nodes[0].coordinates.ToString() + " to " + nodes[4].coordinates.ToString() + " : [";
+		foreach (int path_node in GraphTools.getShortestDistanceToNodeList (links, 0, new List<int>() { 4 })) {
+			path += nodes [path_node].coordinates.ToString () + ", ";
+		}
+		print (path + "]");
 	}
 
 
@@ -174,9 +186,8 @@ public class World : MonoBehaviour {
 			Node node = nodes [i];
 			Coords2D c1 = new_node.coordinates, c2 = node.coordinates;
 			if (raycast(c1, c2)) {
-				KeyValuePair<int,float> new_kvp = new KeyValuePair<int,float> (nodes.Count, new_node.coordinates.distance (node.coordinates));
-				new_links.Add (new_kvp);
-				links [i].Add (new_kvp);
+				new_links.Add (new KeyValuePair<int,float> (i, new_node.coordinates.distance (node.coordinates)));
+				links [i].Add (new KeyValuePair<int,float> (nodes.Count, new_node.coordinates.distance (node.coordinates)));
 			}
 		}
 		links.Add (new_links);
@@ -207,7 +218,7 @@ public class World : MonoBehaviour {
 		GameObject line_obj = Instantiate (Resources.Load("Line", typeof(GameObject))) as GameObject;
 		line_obj.transform.position = new Vector3 (((float)(c1.x + c2.x)) / 2f, ((float)(c1.y + c2.y)) / 2f, -0.5f);
 		line_obj.transform.localScale = new Vector3(0.1f, c1.distance (c2), 1.0f);
-		line_obj.transform.rotation = Quaternion.Euler ( new Vector3(0f, 0f, Vector2.Angle(new Vector2(0, 1), (c2 - c1).toVector2())) ); 
+		line_obj.transform.rotation = Quaternion.Euler ( new Vector3(0f, 0f, c1.angle(c2, -90f) )); 
 	}
 
 }

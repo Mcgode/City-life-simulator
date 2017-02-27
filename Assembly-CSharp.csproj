@@ -47,8 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Building\Building.cs" />
+     <Compile Include="Assets\Scripts\Building\BuildingManager.cs" />
      <Compile Include="Assets\Scripts\Building\BuildingType.cs" />
      <Compile Include="Assets\Scripts\Building\WholeBuilding.cs" />
+     <Compile Include="Assets\Scripts\Citizen\Citizen.cs" />
+     <Compile Include="Assets\Scripts\Citizen\CitizenAI.cs" />
+     <Compile Include="Assets\Scripts\General\GraphTools.cs" />
      <Compile Include="Assets\Scripts\World\Coords2D.cs" />
      <Compile Include="Assets\Scripts\World\Directions.cs" />
      <Compile Include="Assets\Scripts\World\EntranceNode.cs" />

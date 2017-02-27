@@ -15,6 +15,9 @@ public class EntranceNode : MonoBehaviour
 			linkedBuilding = GetComponentInParent<WholeBuilding> ();
 		}
 
+		// Register entrance to the building
+		linkedBuilding.registerEntrance (this);
+
 		// If no directions were given, determines the first available direction to the building
 		if (buildingEntranceDirection == Direction.None) {
 			Coords2D currentCoords = Coords2D.getCoords (gameObject);

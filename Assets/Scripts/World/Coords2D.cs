@@ -95,7 +95,28 @@ public struct Coords2D {
 		return Direction.None;
 	}
 
+
+	// Returns a Vector2 object with the Coords2D object coordinates
 	public Vector2 toVector2() {
 		return new Vector2 (this.x, this.y);
+	}
+
+
+	// Returns the angle of 'other' relative to the Coords2D object, with or without a shift (in degrees)
+	public float angle(Coords2D other, float shift = 0f) {
+		Coords2D distance_coords = other - this;
+		float distance = distance_coords.norm();
+		float base_angle_from_cos = Mathf.Acos (distance_coords.x / distance);
+		if (Mathf.Asin (distance_coords.y / distance) >= 0) { return correctAngle(base_angle_from_cos, shift); }
+		return correctAngle(-base_angle_from_cos, shift);
+	}
+
+	// Corrects the positive angle, with the eventual shift, in degrees
+	private float correctAngle(float angle, float shift) {
+		float angle_value = angle + shift * Mathf.Deg2Rad;
+		if (angle_value < 0) {
+			angle_value = 2 * Mathf.PI + angle_value;
+		}
+		return angle_value * Mathf.Rad2Deg;
 	}
 }
