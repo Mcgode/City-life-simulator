@@ -33,6 +33,10 @@ public class World : MonoBehaviour {
 	}
 
 
+	// Node display parent
+	GameObject node_display_parent;
+
+
 	// Call this function to register the entrance nodes. The entrance needs to have a direction and a linked building
 	public void registerEntrance(EntranceNode node) { 
 		if (node.buildingEntranceDirection != Direction.None && node.linkedBuilding) {
@@ -118,27 +122,25 @@ public class World : MonoBehaviour {
 	// Start program, classic. We launch the 'map out' process from here 
 	private void Start()
 	{
+		if (!node_display_parent) { 
+			node_display_parent = new GameObject();
+			node_display_parent.transform.SetParent (gameObject.transform);
+			node_display_parent.name = "Node Display";
+			node_display_parent.AddComponent<NodeInteraction> ();
+		}
+		node_display_parent.SetActive (false);
 		mapOutCornersOfWorldMap ();
 		cornerNodes = new List<Coords2D> (new HashSet<Coords2D>(cornerNodes));
 		figureOutNodeMapping ();
-		for (int i = 0; i < nodes.Count; i++) {
-			string node_string = i.ToString() + " : " + nodes[i].coordinates.ToString() + " [";
-			foreach (KeyValuePair<int, float> link in links[i]) {
-				node_string += link.Key.ToString() + ", ";
-			}
-			print (node_string + "]");
-		}
-		string path = "Path from " + nodes[0].coordinates.ToString() + " to " + nodes[4].coordinates.ToString() + " : [";
-		foreach (int path_node in GraphTools.getShortestDistanceToNodeList (links, 0, new List<int>() { 4 })) {
-			path += nodes [path_node].coordinates.ToString () + ", ";
-		}
-		print (path + "]");
+		node_display_parent.SetActive (true);
 	}
 
 
 	// Displays a circle node at the given coords, and returns it
 	private GameObject pointAt(Coords2D coords, float offset = -1.0f) {
 		GameObject node_obj = Instantiate (Resources.Load("Node", typeof(GameObject))) as GameObject;
+		node_obj.transform.SetParent (node_display_parent.transform);
+		node_obj.name = "Node at " + coords.ToString ();
 		node_obj.transform.position = new Vector3 (coords.x, coords.y, offset);
 		return node_obj;
 	}
@@ -172,7 +174,7 @@ public class World : MonoBehaviour {
 
 		for (int i=0; i < links.Count; i++) {
 			foreach (KeyValuePair<int, float> link in links[i]) {
-				pointAt (nodes[i].coordinates);
+				//pointAt (nodes[i].coordinates);
 				displayLine (nodes [link.Key].coordinates, nodes [i].coordinates);
 			}
 		}
@@ -216,6 +218,8 @@ public class World : MonoBehaviour {
 	// Displays a line between c1 and c2.
 	private void displayLine(Coords2D c1, Coords2D c2) {
 		GameObject line_obj = Instantiate (Resources.Load("Line", typeof(GameObject))) as GameObject;
+		line_obj.transform.SetParent (node_display_parent.transform);
+		line_obj.name = "Line from " + c1.ToString () + " to " + c2.ToString ();
 		line_obj.transform.position = new Vector3 (((float)(c1.x + c2.x)) / 2f, ((float)(c1.y + c2.y)) / 2f, -0.5f);
 		line_obj.transform.localScale = new Vector3(0.1f, c1.distance (c2), 1.0f);
 		line_obj.transform.rotation = Quaternion.Euler ( new Vector3(0f, 0f, c1.angle(c2, -90f) )); 

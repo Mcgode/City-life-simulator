@@ -11,31 +11,39 @@ public class GraphTools : MonoBehaviour
 			return new List<int> () { depart_index };
 		}
 
-		List<int> neighbours = new List<int>(), reached_nodes = new List<int>() { depart_index };
+		// Status: 2 = Node reached, 1 = Neighbour, 0 = Not in the vincinity
+		List<int> node_status = new List<int>();
+
+		List<int> neighbours = new List<int> (), reached_nodes = new List<int> () { depart_index };
 		Dictionary<int, float> total_distance = new Dictionary<int, float>();
 		Dictionary<int, List<int>> path = new Dictionary<int, List<int>> ();
 
 		path.Add (depart_index, new List<int>() { depart_index });
 
+		for (int i = 0; i < node_links.Count; i++) { 
+			if (i == depart_index) 
+			{ 
+				node_status.Add (0); 
+			} 
+			else
+			{ 
+				node_status.Add(2); 
+			} 
+		}
+
 		foreach (KeyValuePair<int, float> kvp in node_links[depart_index]) {
 			neighbours.Add (kvp.Key);
+			node_status [kvp.Key] = 1;
 			total_distance.Add (kvp.Key, kvp.Value);
 			path.Add (kvp.Key, new List<int> () { depart_index, kvp.Key });
 		}
 
 		while (neighbours.Count > 0) {
 
-			string neighbours_string = "Neighbours: [";
-			foreach (int neighbour in neighbours) { neighbours_string += neighbour.ToString() + ", "; }
-			print (neighbours_string + "]");
-
-			string reached_string = "Reached Nodes: [";
-			foreach (int reached_node in reached_nodes) { reached_string += reached_node.ToString() + ", "; }
-			print (reached_string + "]");
-
 			int best_neighbour = neighbours [0];
 			float shortest_distance = total_distance [neighbours [0]];
 
+			// Determine which neighbour is the closest
 			foreach (int neighbour in neighbours) {
 				if (shortest_distance > total_distance [neighbour]) {
 					shortest_distance = total_distance [neighbour];
@@ -43,14 +51,16 @@ public class GraphTools : MonoBehaviour
 				}
 			}
 
-			print ("Best neighbour: " + best_neighbour.ToString());
-
+			// Change the status of this best neighbour from neighbour to reached node
 			reached_nodes.Add (best_neighbour);
 			neighbours.Remove (best_neighbour);
+			node_status [best_neighbour] = 2;
+
+			// Check for new neighbours or new closest distance to start point thanks to the newly reached node
 			foreach (KeyValuePair<int, float> link in node_links[best_neighbour]) {
 				print (link.Key);
-				if (!reached_nodes.Contains (link.Key)) {
-					if (neighbours.Contains (link.Key)) {
+				if (node_status[link.Key] < 2) {
+					if (node_status[link.Key] == 1) {
 						if (total_distance [link.Key] > shortest_distance + link.Value) {
 							total_distance [link.Key] = shortest_distance;
 							path [link.Key] = path [best_neighbour].GetRange (0, path [best_neighbour].Count);
@@ -58,6 +68,7 @@ public class GraphTools : MonoBehaviour
 						}
 					} else {
 						neighbours.Add (link.Key);
+						node_status [link.Key] = 1;
 						total_distance.Add(link.Key, link.Value + shortest_distance);
 						path.Add(link.Key, path [best_neighbour].GetRange (0, path [best_neighbour].Count));
 						path [link.Key].Add (link.Key);
@@ -65,11 +76,6 @@ public class GraphTools : MonoBehaviour
 				}
 			}
 			if (target_nodes.Contains (best_neighbour)) {
-				neighbours_string = "[";
-				foreach (int neighbour in path[best_neighbour]) {
-					neighbours_string += neighbour.ToString () + ", ";
-				}
-				print (neighbours_string + "]");
 				return path [best_neighbour];
 			}
 
