@@ -6,11 +6,19 @@ public class CitizenAI : MonoBehaviour
 {
 	World world;
 	BuildingManager building_manager;
+	public Citizen citizen;
 
 
 	void Start() {
 		world = GameObject.FindGameObjectWithTag("World").GetComponent<World>();
 		building_manager = GameObject.FindGameObjectWithTag("World").GetComponent<BuildingManager>();
+		citizen = GetComponent<Citizen> ();
+		if (!citizen) { DestroyImmediate (this); }
+	}
+
+
+	public void planNext() {
+
 	}
 
 
@@ -21,12 +29,7 @@ public class CitizenAI : MonoBehaviour
 				potential_targets.Add (Coords2D.getCoords (node.gameObject));
 			}
 		}
-		return getNodesToGoToClosestInList (potential_targets, depart_position);
-	}
-
-
-	private List<Coords2D> getNodesToGoToClosestInList(List<Coords2D> list, Coords2D depart_position) {
-		return new List<Coords2D> ();
+		return world.pathfindFromCoordinatesMultipleTargets (depart_position, potential_targets);
 	}
 
 }
