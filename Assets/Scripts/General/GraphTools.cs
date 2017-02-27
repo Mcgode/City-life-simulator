@@ -5,10 +5,10 @@ using UnityEngine;
 public class GraphTools : MonoBehaviour
 {
 	// Implementation of the Dijkstra algorithm to get the closed node from a list to a given depart point
-	public static List<int> getShortestDistanceToNodeList(List<List<KeyValuePair<int, float>>> node_links, int depart_index, List<int> target_nodes) {
+	public static KeyValuePair<float, List<int>> getShortestDistanceToNodeListKVP(List<List<KeyValuePair<int, float>>> node_links, int depart_index, List<int> target_nodes) {
 
 		if (target_nodes.Contains (depart_index)) {
-			return new List<int> () { depart_index };
+			return new KeyValuePair<float, List<int>> (0f, new List<int>() { depart_index });
 		}
 
 		// Status: 2 = Node reached, 1 = Neighbour, 0 = Not in the vincinity
@@ -70,11 +70,15 @@ public class GraphTools : MonoBehaviour
 			}
 
 			if (target_nodes.Contains (best_neighbour)) {
-				return path [best_neighbour];
+				return new KeyValuePair<float, List<int>> (total_distance [best_neighbour], path [best_neighbour]);
 			}
 
 		}
 
-		return new List<int>();
+		return new KeyValuePair<float, List<int>> (Mathf.Infinity, new List<int> ());
+	}
+
+	public static List<int> getShortestDistanceToNodeList(List<List<KeyValuePair<int, float>>> node_links, int depart_index, List<int> target_nodes) {
+		return getShortestDistanceToNodeListKVP (node_links, depart_index, target_nodes).Value;
 	}
 }

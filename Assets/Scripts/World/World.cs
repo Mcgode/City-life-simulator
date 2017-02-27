@@ -85,7 +85,7 @@ public class World : MonoBehaviour {
 							{
 								cornerNodes.Add (checking_coords);
 								// Displays corner, for debug purpose
-								GameObject node = pointAt (checking_coords);
+								pointAt (checking_coords);
 //								node.GetComponent<SpriteRenderer>().color = objects[x][y].gameObject.GetComponent<SpriteRenderer>().color;
 							}
 						}
@@ -251,7 +251,7 @@ public class World : MonoBehaviour {
 			if (nodes [i].coordinates == c2) { i2 = i; }
 		}
 		List<Coords2D> coords = new List<Coords2D>();
-		foreach (int index in pathfindFromIndexes (i1, new List<int>() { i2 } )) {
+		foreach (int index in pathfindFromIndexes (i1, new List<int>() { i2 } ).Value) {
 			coords.Add (nodes [index].coordinates);
 		}
 		return coords;
@@ -259,8 +259,7 @@ public class World : MonoBehaviour {
 
 
 	// Returns shortest path from depart to nearest target in targets list
-	public List<Coords2D> pathfindFromCoordinatesMultipleTargets(Coords2D depart, List<Coords2D> targets) {
-		if (targets.Contains (depart)) { return new List<Coords2D> () { depart }; }
+	public KeyValuePair<float, List<Coords2D>> pathfindFromCoordinatesMultipleTargets(Coords2D depart, List<Coords2D> targets) {
 		int depart_index = 0;
 		List<int> target_indexes = new List<int>();
 		for (int i = 0; i < nodes.Count; i++) {
@@ -268,16 +267,17 @@ public class World : MonoBehaviour {
 			if (targets.Contains(nodes [i].coordinates)) { target_indexes.Add(i); }
 		}
 		List<Coords2D> coords = new List<Coords2D>();
-		foreach (int index in pathfindFromIndexes (depart_index, target_indexes)) {
+		KeyValuePair<float, List<int>> result = pathfindFromIndexes (depart_index, target_indexes);
+		foreach (int index in result.Value) {
 			coords.Add (nodes [index].coordinates);
 		}
-		return coords;
+		return new KeyValuePair<float, List<Coords2D>>(result.Key, coords);
 	}
 
 
 	// Returns index path from index info
-	private List<int> pathfindFromIndexes(int depart, List<int> arrival) {
-		return GraphTools.getShortestDistanceToNodeList (links, depart, arrival);
+	private KeyValuePair<float, List<int>> pathfindFromIndexes(int depart, List<int> arrival) {
+		return GraphTools.getShortestDistanceToNodeListKVP (links, depart, arrival);
 	}
 
 }

@@ -13,8 +13,9 @@ public class Citizen : MonoBehaviour
 	float happieness = 1f;
 	float social_health = 1f;
 	float walk_speed = 3f;
-	Job job;
-	Dictionary<Citizen, float> relationships;
+	public Job job;
+	public WholeBuilding home;
+	Dictionary<Citizen, float> relationships = new Dictionary<Citizen, float> ();
 
 	List<Action> queued_actions = new List<Action>();
 	Action current_action;
@@ -38,15 +39,12 @@ public class Citizen : MonoBehaviour
 	// Registers the citizen to get a unique ID.
 	void Awake() {
 		GameObject.FindObjectOfType<CitizenOverseer> ().registerCitizen (this);
-	}
-
-	// AI init and other stuff. 
-	void Start() {
 		ai = GetComponent<CitizenAI> ();
 		if (!ai) {
 			gameObject.AddComponent<CitizenAI> ();
 			ai = GetComponent<CitizenAI> ();
 		}
+		queued_actions.Add (new Action (ActionType.Wait, 0.3f, (Vector2)transform.position));
 	}
 
 
@@ -60,7 +58,10 @@ public class Citizen : MonoBehaviour
 				updateWaitAction ();
 			}
 		} else {
-			ai.planNext ();
+			current_action = getNextAction ();
+			if (current_action == null) {
+				ai.planNext ();
+			}
 		}
 	}
 
@@ -87,7 +88,11 @@ public class Citizen : MonoBehaviour
 				getReward ();
 				current_action = getNextAction ();
 				time_since_action_begining = 0f;
-				if (current_action == null) { ai.planNext (); }
+				if (current_action == null) {
+					ai.planNext ();
+				}
+			} else {
+				print ("Will wait");
 			}
 		} else {
 			getReward ();
@@ -121,25 +126,37 @@ public class Citizen : MonoBehaviour
 	private void getReward() {
 		float amount = current_action.total_reward * Mathf.Max (time_since_action_begining, current_action.action_time) / current_action.action_time;
 		switch (current_action.reward) {
-		case RewardType.Money:
+		case CitizenStats.Money:
 			money += amount;
 			break;
-		case RewardType.Hunger:
+		case CitizenStats.Hunger:
 			hunger = Mathf.Min (hunger + amount, 1f);
 			break;
-		case RewardType.Sleep:
+		case CitizenStats.Sleep:
 			sleep = Mathf.Min (sleep + amount, 1f);
 			break;
-		case RewardType.Health:
+		case CitizenStats.Health:
 			health = Mathf.Min (health + amount, 1f);
 			break;
-		case RewardType.SocialHealth:
+		case CitizenStats.SocialHealth:
 			social_health = Mathf.Min (social_health + amount, 1f);
 			break;
-		case RewardType.Happiness:
+		case CitizenStats.Happiness:
 			happieness = Mathf.Min (happieness + amount, 1f);
 			break;
 		}
 	}
 
+}
+
+
+public enum CitizenStats
+{
+	None,
+	Money,
+	Hunger,
+	Sleep,
+	Health,
+	SocialHealth,
+	Happiness
 }
