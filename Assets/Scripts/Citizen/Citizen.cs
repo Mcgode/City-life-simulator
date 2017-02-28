@@ -4,34 +4,39 @@ using UnityEngine;
 
 public class Citizen : MonoBehaviour 
 {
+	public bool good_to_go = false;
+
 	public int id = 0;
-	CitizenAI ai;
-	float hunger = 1f;
-	float money = 1000f;
-	float sleep = 1f;
-	float health = 1f;
-	float happieness = 1f;
-	float social_health = 1f;
-	float walk_speed = 3f;
+	public CitizenAI ai;
+	public float hunger = 1f, 
+				 money = 1000f,
+				 sleep = 1f,
+				 health = 1f,
+				 happieness = 1f,
+				 social_health = 1f,
+				 walk_speed = 3f;
 	public Job job;
 	public WholeBuilding home;
 	Dictionary<Citizen, float> relationships = new Dictionary<Citizen, float> ();
+	public float ideal_money = 3000f;
+
+	public float sleep_attrition_rate = 0.001f, 
+				 hunger_attrition_rate = 0.002f, 
+				 health_attrition_rate = 0.01f, 
+				 social_health_attrition_rate = 0.003f;
 
 	List<Action> queued_actions = new List<Action>();
 	Action current_action;
 	float time_since_action_begining = 0f;
+	public Coords2D current_coords;
 
 
-	public override int GetHashCode ()
-	{
-		return this.id;
-	}
+	public override int GetHashCode () { return this.id; }
 
 	// Overrides Equals method, compares unique ids of Citizen objects.
-	public override bool Equals(object obj) {
-		if (obj.GetType() == typeof(Citizen)) {
-			return ((Citizen)obj).id == this.id;
-		}
+	public override bool Equals(object obj) 
+	{
+		if (obj.GetType() == typeof(Citizen)) { return ((Citizen)obj).id == this.id; }
 		return false;
 	}
 
@@ -44,24 +49,28 @@ public class Citizen : MonoBehaviour
 			gameObject.AddComponent<CitizenAI> ();
 			ai = GetComponent<CitizenAI> ();
 		}
-		queued_actions.Add (new Action (ActionType.Wait, 0.3f, (Vector2)transform.position));
+		queued_actions.Add (new Action (ActionType.Wait, (Vector2)transform.position));
 	}
 
 
 	// Update triggered at every physic frame. Used to update status of the current action.
 	void FixedUpdate() {
-		time_since_action_begining += Time.fixedDeltaTime * Time.timeScale;
-		if (current_action != null) {
-			if (current_action.type == ActionType.Move) {
-				updateMoveAction ();
+		if (good_to_go) {
+			time_since_action_begining += Time.fixedDeltaTime * Time.timeScale;
+			if (current_action != null) {
+				if (current_action.type == ActionType.Move) {
+					updateMoveAction ();
+				} else {
+					updateWaitAction ();
+				}
 			} else {
-				updateWaitAction ();
+				current_action = getNextAction ();
+				if (current_action == null) {
+					ai.planNext ();
+				}
 			}
-		} else {
-			current_action = getNextAction ();
-			if (current_action == null) {
-				ai.planNext ();
-			}
+
+			applyStatAttrition ();
 		}
 	}
 
@@ -73,7 +82,7 @@ public class Citizen : MonoBehaviour
 			transform.position = transform.position + (Vector3)(current_action.destination - position).normalized * distance_walked;
 		} else {
 			transform.position = (Vector3)(current_action.destination - position) + transform.position; 
-			getReward ();
+			current_coords = current_action.position_coords;
 			current_action = getNextAction ();
 			time_since_action_begining = 0f;
 			if (current_action == null) { ai.planNext (); }
@@ -82,21 +91,13 @@ public class Citizen : MonoBehaviour
 		
 	// Update action status if action type is Wait
 	void updateWaitAction() {
-		Vector2 position = new Vector2 (transform.position.x, transform.position.y);
-		if ((position - current_action.destination).magnitude < 0.5f) {
-			if (time_since_action_begining >= current_action.action_time) {
-				getReward ();
-				current_action = getNextAction ();
-				time_since_action_begining = 0f;
-				if (current_action == null) {
-					ai.planNext ();
-				}
-			} else {
-				print ("Will wait");
-			}
-		} else {
+		if (time_since_action_begining >= current_action.action_time) {
 			getReward ();
-			ai.planNext();
+			current_action = getNextAction ();
+			time_since_action_begining = 0f;
+			if (current_action == null) {
+				ai.planNext ();
+			}
 		}
 	}
 
@@ -126,31 +127,63 @@ public class Citizen : MonoBehaviour
 	private void getReward() {
 		float amount = current_action.total_reward * Mathf.Max (time_since_action_begining, current_action.action_time) / current_action.action_time;
 		switch (current_action.reward) {
-		case CitizenStats.Money:
+		case CitizenStat.Money:
 			money += amount;
 			break;
-		case CitizenStats.Hunger:
+		case CitizenStat.Hunger:
 			hunger = Mathf.Min (hunger + amount, 1f);
 			break;
-		case CitizenStats.Sleep:
+		case CitizenStat.Sleep:
 			sleep = Mathf.Min (sleep + amount, 1f);
 			break;
-		case CitizenStats.Health:
+		case CitizenStat.Health:
 			health = Mathf.Min (health + amount, 1f);
 			break;
-		case CitizenStats.SocialHealth:
+		case CitizenStat.SocialHealth:
 			social_health = Mathf.Min (social_health + amount, 1f);
 			break;
-		case CitizenStats.Happiness:
+		case CitizenStat.Happiness:
 			happieness = Mathf.Min (happieness + amount, 1f);
 			break;
+		}
+	}
+
+
+	void applyStatAttrition() {
+		if (current_action != null) {
+			if (current_action.reward != CitizenStat.Sleep) { sleep -= Time.fixedDeltaTime * Time.timeScale * sleep_attrition_rate; }
+			if (current_action.reward != CitizenStat.Hunger && current_action.reward != CitizenStat.Health) { 
+				hunger -= Time.fixedDeltaTime * Time.timeScale * hunger_attrition_rate;
+			}
+			if (current_action.reward != CitizenStat.SocialHealth) { social_health -= Time.fixedDeltaTime * Time.timeScale * social_health_attrition_rate; }
+		} else {
+			sleep -= Time.fixedDeltaTime * Time.timeScale * sleep_attrition_rate;
+			hunger -= Time.fixedDeltaTime * Time.timeScale * hunger_attrition_rate;
+			social_health -= Time.fixedDeltaTime * Time.timeScale * social_health_attrition_rate;
+		}
+
+		sleep = Mathf.Max (sleep, 0f);
+		hunger = Mathf.Max (hunger, 0f);
+		healthAttrition ();
+	}
+
+
+	void healthAttrition() {
+		if (current_action != null) {
+			if (current_action.reward != CitizenStat.Health && hunger == 0f) { 
+				health -= Time.fixedDeltaTime * Time.timeScale * health_attrition_rate;
+			}
+		}
+
+		if (health <= 0f) {
+			DestroyImmediate (gameObject);
 		}
 	}
 
 }
 
 
-public enum CitizenStats
+public enum CitizenStat
 {
 	None,
 	Money,

@@ -44,7 +44,7 @@ public class MakeBehaviourElements : MonoBehaviour {
 			"Earn money",
 			new List<CitizenBehaviourElement>() { work },
 			BehaviourType.GetStat,
-			CitizenStats.Money
+			CitizenStat.Money
 		);
 		behaviour_list.Add (earn_money);
 
@@ -77,7 +77,8 @@ public class MakeBehaviourElements : MonoBehaviour {
 			"Cook",
 			new List<CitizenBehaviourElement>() { go_home },
 			BehaviourType.None,
-			0f
+			0f,
+			5f
 		);
 		behaviour_list.Add (cook);
 
@@ -85,7 +86,7 @@ public class MakeBehaviourElements : MonoBehaviour {
 			"Eat",
 			new List<CitizenBehaviourElement>() { cook },
 			BehaviourType.GetStat,
-			CitizenStats.Hunger
+			CitizenStat.Hunger
 		);
 		behaviour_list.Add (eat);
 
@@ -101,9 +102,100 @@ public class MakeBehaviourElements : MonoBehaviour {
 			"Sleep",
 			new List<CitizenBehaviourElement>() { go_to_bed },
 			BehaviourType.GetStat,
-			CitizenStats.Sleep
+			CitizenStat.Sleep
 		);
 		behaviour_list.Add (sleep);
+
+		CitizenBehaviourElement go_to_hospital = new CitizenBehaviourElement (
+			"Go to hospital",
+			new List<CitizenBehaviourElement>() { start },
+			BehaviourType.MoveToNearest,
+			BuildingType.Hospital
+		);
+		behaviour_list.Add (go_to_hospital);
+
+		CitizenBehaviourElement heal = new CitizenBehaviourElement (
+			"Be healthy",
+			new List<CitizenBehaviourElement>() { go_to_hospital },
+			BehaviourType.GetStat,
+			CitizenStat.Health
+		);
+		behaviour_list.Add (heal);
+
+		CitizenBehaviourElement go_to_bar = new CitizenBehaviourElement (
+			"Go to bar",
+			new List<CitizenBehaviourElement>() { start },
+			BehaviourType.MoveToNearest,
+			BuildingType.Bar
+		);
+		behaviour_list.Add (go_to_bar);
+
+		CitizenBehaviourElement get_drink = new CitizenBehaviourElement (
+			"Get a drink",
+			new List<CitizenBehaviourElement>() { go_to_bar },
+			BehaviourType.SpendMoney,
+			new SpendMoneyInfo(10f, "drink", 1)
+		);
+		behaviour_list.Add (get_drink);
+
+		CitizenBehaviourElement go_to_park = new CitizenBehaviourElement (
+			"Go to the park",
+			new List<CitizenBehaviourElement>() { start },
+			BehaviourType.MoveToNearest,
+			BuildingType.Park
+		);
+		behaviour_list.Add (go_to_park);
+
+		CitizenBehaviourElement have_a_walk = new CitizenBehaviourElement (
+			"Have a walk",
+			new List<CitizenBehaviourElement>() { go_to_park },
+			BehaviourType.None,
+			2000f,
+			10f
+		);
+		behaviour_list.Add (have_a_walk);
+
+		CitizenBehaviourElement discuss = new CitizenBehaviourElement (
+			"Discuss",
+			new List<CitizenBehaviourElement>() { get_drink, have_a_walk },
+			BehaviourType.None,
+			0f,
+			10f
+		);
+		behaviour_list.Add (discuss);
+
+		CitizenBehaviourElement be_social = new CitizenBehaviourElement (
+			"Be social",
+			new List<CitizenBehaviourElement>() { discuss },
+			BehaviourType.GetStat,
+			CitizenStat.SocialHealth
+		);
+		behaviour_list.Add (be_social);
+
+		CitizenBehaviourElement go_to_church = new CitizenBehaviourElement (
+			"Go to church",
+			new List<CitizenBehaviourElement>() { start },
+			BehaviourType.MoveToNearest,
+			BuildingType.Church
+		);
+		behaviour_list.Add (go_to_church);
+
+		CitizenBehaviourElement pray = new CitizenBehaviourElement (
+			"Pray",
+			new List<CitizenBehaviourElement>() { go_to_church },
+			BehaviourType.None,
+			2000f,
+			10f
+		);
+		behaviour_list.Add (pray);
+
+		CitizenBehaviourElement be_happy = new CitizenBehaviourElement (
+			"Be happie",
+			new List<CitizenBehaviourElement>() { get_drink, have_a_walk, pray },
+			BehaviourType.GetStat,
+			CitizenStat.Happiness
+		);
+		behaviour_list.Add (be_happy);
 
 		CitizenBehaviourElement idle = new CitizenBehaviourElement (
 			"Stay idle",
@@ -117,7 +209,7 @@ public class MakeBehaviourElements : MonoBehaviour {
 			"Be idle",
 			new List<CitizenBehaviourElement>() { idle },
 			BehaviourType.GetStat,
-			CitizenStats.None
+			CitizenStat.None
 		);
 		behaviour_list.Add (be_idle);
 

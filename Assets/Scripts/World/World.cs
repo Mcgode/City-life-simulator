@@ -8,7 +8,7 @@ public class World : MonoBehaviour {
 	Dictionary<int,Dictionary<int,WorldObject>> objects = new Dictionary<int,Dictionary<int,WorldObject>>();
 
 	// Here we store the entrance nodes, the nodes on which the citizen has to stand on in order to enter a given building. 
-	List<EntranceNode> entrances = new List<EntranceNode> ();
+	public List<EntranceNode> entrances = new List<EntranceNode> ();
 
 	// Here are stored the corner nodes, for pathfinding.
 	List<Coords2D> cornerNodes = new List<Coords2D> ();

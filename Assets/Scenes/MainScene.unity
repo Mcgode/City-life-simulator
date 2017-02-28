@@ -2868,7 +2868,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 274605323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 819093142}
@@ -2885,7 +2885,7 @@ Transform:
   - {fileID: 301440028}
   - {fileID: 557344600}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &274605325
 MonoBehaviour:
@@ -2900,6 +2900,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &287134494
 GameObject:
   m_ObjectHideFlags: 0
@@ -4707,7 +4710,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 553224148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1754299247}
@@ -4718,7 +4721,7 @@ Transform:
   - {fileID: 294520928}
   - {fileID: 406605854}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &553224150
 MonoBehaviour:
@@ -4733,6 +4736,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &557344599
 GameObject:
   m_ObjectHideFlags: 0
@@ -6871,7 +6877,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 708117740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1559654157}
@@ -6888,7 +6894,7 @@ Transform:
   - {fileID: 216722486}
   - {fileID: 410688090}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &708117742
 MonoBehaviour:
@@ -6903,6 +6909,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 9
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &716729763
 GameObject:
   m_ObjectHideFlags: 0
@@ -7458,7 +7467,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 776420637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 702220180}
@@ -7470,7 +7479,7 @@ Transform:
   - {fileID: 192507619}
   - {fileID: 1819366832}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &776420639
 MonoBehaviour:
@@ -7485,6 +7494,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &786017873
 GameObject:
   m_ObjectHideFlags: 0
@@ -8496,7 +8508,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 879142270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1551345060}
@@ -8508,7 +8520,7 @@ Transform:
   - {fileID: 1326101924}
   - {fileID: 1697280494}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &879142272
 MonoBehaviour:
@@ -8523,6 +8535,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &884286860
 GameObject:
   m_ObjectHideFlags: 0
@@ -8850,7 +8865,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 900386501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 675043363}
@@ -8877,6 +8892,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &908573993
 GameObject:
   m_ObjectHideFlags: 0
@@ -8900,7 +8918,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 908573993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 706300294}
@@ -8925,6 +8943,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &910520959
 GameObject:
   m_ObjectHideFlags: 0
@@ -9863,7 +9884,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1039982022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 233185342}
@@ -9876,7 +9897,7 @@ Transform:
   - {fileID: 739890583}
   - {fileID: 2135298084}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056021308
 GameObject:
@@ -10433,7 +10454,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1112144895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2061138116}
@@ -10445,7 +10466,7 @@ Transform:
   - {fileID: 1169311908}
   - {fileID: 1955983687}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1112144897
 MonoBehaviour:
@@ -10460,6 +10481,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &1114893037
 GameObject:
   m_ObjectHideFlags: 0
@@ -11547,7 +11571,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1177002320}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1296527136}
@@ -11559,7 +11583,7 @@ Transform:
   - {fileID: 18135066}
   - {fileID: 696593529}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1177002322
 MonoBehaviour:
@@ -11574,6 +11598,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &1181584362
 GameObject:
   m_ObjectHideFlags: 0
@@ -11673,7 +11700,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1187947498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1339017155}
@@ -11684,7 +11711,7 @@ Transform:
   - {fileID: 967253059}
   - {fileID: 1039046165}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1187947500
 MonoBehaviour:
@@ -11699,6 +11726,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &1204743099
 GameObject:
   m_ObjectHideFlags: 0
@@ -11722,7 +11752,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1204743099}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1078375798}
@@ -11740,7 +11770,7 @@ Transform:
   - {fileID: 1357782292}
   - {fileID: 50672112}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1204743101
 MonoBehaviour:
@@ -11755,6 +11785,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &1222860876
 GameObject:
   m_ObjectHideFlags: 0
@@ -13735,53 +13768,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 0.35294116, b: 0.7144018, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1001 &1396332051
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1897352813}
-    m_Modifications:
-    - target: {fileID: 4833381677824404, guid: 0235b3bf8081243708d62fdd115eeccb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4833381677824404, guid: 0235b3bf8081243708d62fdd115eeccb, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4833381677824404, guid: 0235b3bf8081243708d62fdd115eeccb, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4833381677824404, guid: 0235b3bf8081243708d62fdd115eeccb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4833381677824404, guid: 0235b3bf8081243708d62fdd115eeccb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4833381677824404, guid: 0235b3bf8081243708d62fdd115eeccb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4833381677824404, guid: 0235b3bf8081243708d62fdd115eeccb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4833381677824404, guid: 0235b3bf8081243708d62fdd115eeccb, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0235b3bf8081243708d62fdd115eeccb, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1396332052 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4833381677824404, guid: 0235b3bf8081243708d62fdd115eeccb,
-    type: 2}
-  m_PrefabInternal: {fileID: 1396332051}
 --- !u!1 &1402669799
 GameObject:
   m_ObjectHideFlags: 0
@@ -14109,7 +14095,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1444283141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 59814818}
@@ -14117,7 +14103,7 @@ Transform:
   - {fileID: 145358551}
   - {fileID: 317712283}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1444283143
 MonoBehaviour:
@@ -14132,6 +14118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &1450100656
 GameObject:
   m_ObjectHideFlags: 0
@@ -14535,7 +14524,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1473702581}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 191595249}
@@ -14559,6 +14548,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &1475361138
 GameObject:
   m_ObjectHideFlags: 0
@@ -14962,7 +14954,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1529930404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 360721728}
@@ -14984,7 +14976,7 @@ Transform:
   - {fileID: 1946114506}
   - {fileID: 1351127567}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1529930406
 MonoBehaviour:
@@ -14999,6 +14991,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 7
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &1538137818
 GameObject:
   m_ObjectHideFlags: 0
@@ -17002,7 +16997,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1729003612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1974322186}
@@ -17016,7 +17011,7 @@ Transform:
   - {fileID: 671271086}
   - {fileID: 581556242}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1729003614
 MonoBehaviour:
@@ -17031,6 +17026,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 4
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &1737761363
 GameObject:
   m_ObjectHideFlags: 0
@@ -17756,7 +17754,7 @@ Transform:
   - {fileID: 678514115}
   - {fileID: 742879659}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1807368372
 GameObject:
@@ -17843,6 +17841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1809875720}
   - component: {fileID: 1809875719}
+  - component: {fileID: 1809875721}
   m_Layer: 0
   m_Name: World
   m_TagString: World
@@ -17861,6 +17860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e036e0f2d5cf483cabe6df337c87442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entrances: []
 --- !u!4 &1809875720
 Transform:
   m_ObjectHideFlags: 0
@@ -17875,6 +17875,7 @@ Transform:
   - {fileID: 900386502}
   - {fileID: 1844143699}
   - {fileID: 1473702582}
+  - {fileID: 1835126836}
   - {fileID: 776420638}
   - {fileID: 879142271}
   - {fileID: 553224149}
@@ -17890,10 +17891,20 @@ Transform:
   - {fileID: 708117741}
   - {fileID: 1529930405}
   - {fileID: 1805705309}
-  - {fileID: 1835126836}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1809875721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809875718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb53c9a1473e488cb99733257045361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1816450459
 GameObject:
   m_ObjectHideFlags: 0
@@ -18299,12 +18310,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1835126835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 193749584}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 19
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1835126837
 MonoBehaviour:
@@ -18319,6 +18330,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &1844143698
 GameObject:
   m_ObjectHideFlags: 0
@@ -18342,7 +18356,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1844143698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1450100657}
@@ -18365,6 +18379,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &1846206754
 GameObject:
   m_ObjectHideFlags: 0
@@ -18680,6 +18697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1897352813}
   - component: {fileID: 1897352812}
+  - component: {fileID: 1897352814}
   m_Layer: 0
   m_Name: Citizens
   m_TagString: Untagged
@@ -18698,6 +18716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad51b38a9c99f40fc97b447cfde2c4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amount_of_citizen: 10
 --- !u!4 &1897352813
 Transform:
   m_ObjectHideFlags: 0
@@ -18707,11 +18726,22 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1396332052}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1897352814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1897352811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6895f8fab1b438e80a1f3bdde39b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
 --- !u!1 &1911814848
 GameObject:
   m_ObjectHideFlags: 0
@@ -20183,7 +20213,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2075983448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 884286861}
@@ -20194,7 +20224,7 @@ Transform:
   - {fileID: 1222860877}
   - {fileID: 1863832985}
   m_Father: {fileID: 1809875720}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2075983450
 MonoBehaviour:
@@ -20209,6 +20239,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 8
   entrances: []
+  capacity_per_block: 2
+  capacity: 0
+  inhabitants: []
 --- !u!1 &2078508468
 GameObject:
   m_ObjectHideFlags: 0

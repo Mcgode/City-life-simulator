@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour 
 {
-	public Dictionary<BuildingType, List<WholeBuilding>> buildings;
+	public Dictionary<BuildingType, List<WholeBuilding>> buildings = new Dictionary<BuildingType, List<WholeBuilding>> ();
 
 	public void registerWholeBuilding(WholeBuilding building) {
 		if (!buildings.ContainsKey (building.type)) {

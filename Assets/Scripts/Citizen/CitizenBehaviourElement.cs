@@ -8,13 +8,15 @@ public struct CitizenBehaviourElement {
 	public List<CitizenBehaviourElement> canComeFrom;
 	public BehaviourType type;
 	public object objective;
+	public float time;
 
 
-	public CitizenBehaviourElement(string desc, List<CitizenBehaviourElement> canComeFrom, BehaviourType behaviour_type, object objective) {
+	public CitizenBehaviourElement(string desc, List<CitizenBehaviourElement> canComeFrom, BehaviourType behaviour_type, object objective, float time = 0f) {
 		description = desc;
 		this.canComeFrom = canComeFrom;
 		type = behaviour_type;
 		this.objective = objective;
+		this.time = time;
 	}
 
 	public override bool Equals(object obj) {

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212928259378984578}
   - component: {fileID: 114388243435363636}
   - component: {fileID: 114243894502478858}
+  - component: {fileID: 58251713609044712}
   m_Layer: 0
   m_Name: Citizen
   m_TagString: Untagged
@@ -35,13 +36,27 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516517561925046}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -1.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.5}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58251713609044712
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516517561925046}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.09
 --- !u!114 &114243894502478858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08c371ee96a647eaacdf87523e4d5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  citizen: {fileID: 0}
 --- !u!114 &114388243435363636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -64,6 +80,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24eff2f118733483b92ee7fd80d78c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  good_to_go: 0
+  id: 0
+  ai: {fileID: 0}
+  hunger: 1
+  money: 1000
+  sleep: 1
+  health: 1
+  happieness: 1
+  social_health: 1
+  walk_speed: 3
+  job: {fileID: 0}
+  home: {fileID: 0}
+  ideal_money: 3000
+  sleep_attrition_rate: 0.001
+  hunger_attrition_rate: 0.002
+  health_attrition_rate: 0.01
+  current_coords:
+    x: 0
+    y: 1
 --- !u!212 &212928259378984578
 SpriteRenderer:
   m_ObjectHideFlags: 1
