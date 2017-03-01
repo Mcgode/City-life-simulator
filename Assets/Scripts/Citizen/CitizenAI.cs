@@ -61,14 +61,15 @@ public class CitizenAI : MonoBehaviour
 		for (int i = 0; i < behaviour_list.Count; i++) {
 			links.Add(new List<KeyValuePair<int, float>>());
 			foreach (CitizenBehaviourElement element in behaviour_list[i].canComeFrom) {
-				links [descriptions.IndexOf (element.description)].Add (new KeyValuePair<int, float> (i, getLength (behaviour_list[i])));
+				int index_of_last = descriptions.IndexOf (element.description);
+				links [index_of_last].Add (new KeyValuePair<int, float> (i, getLength (behaviour_list[i], behaviour_list[index_of_last])));
 			}
 		}
 	}
 
 
 	// Returns a float value to represent the priority of the behaviour
-	private float getLength(CitizenBehaviourElement behaviour_element) {
+	private float getLength(CitizenBehaviourElement behaviour_element, CitizenBehaviourElement last_element) {
 		float value = 20000f;
 
 		switch (behaviour_element.type) {
@@ -80,9 +81,13 @@ public class CitizenAI : MonoBehaviour
 			break;
 		case BehaviourType.MoveToSpecific:
 			if (behaviour_element.objective != null) { value = 10f * getPathDataToSpecific (behaviour_element.objective).Key; }
+			if (behaviour_element.description == "Go to work" && last_element.description == "Get a job") { value = 0f; }
 			break;
 		case BehaviourType.GetStat:
 			value = getValueFromStat ((CitizenStat)(behaviour_element.objective));
+			break;
+		case BehaviourType.GetWork:
+			value = 1000f;
 			break;
 		}
 		return value;
@@ -109,6 +114,12 @@ public class CitizenAI : MonoBehaviour
 				entrance_indexes.Add(Coords2D.getCoords(entrance.gameObject));
 			}
 			return world.pathfindFromCoordinatesMultipleTargets (citizen.current_coords, entrance_indexes);
+		} else if (objective.GetType () == typeof(Job)) {
+			List<Coords2D> entrance_indexes = new List<Coords2D> ();
+			foreach (EntranceNode entrance in ((Job)(objective)).employer.entrances) {
+				entrance_indexes.Add(Coords2D.getCoords(entrance.gameObject));
+			}
+			return world.pathfindFromCoordinatesMultipleTargets (citizen.current_coords, entrance_indexes);
 		}
 		return new KeyValuePair<float, List<Coords2D>> (20000f, new List<Coords2D> ());
 	}
@@ -127,7 +138,7 @@ public class CitizenAI : MonoBehaviour
 		case CitizenStat.Hunger:
 			return citizen.hunger * 15000f;
 		case CitizenStat.Health:
-			if (citizen.health >= 1f) { return 10000f; } else { return 1000f * citizen.health * citizen.health; }
+			if (citizen.health >= 1f) { return 20000f; } else { return 1000f * citizen.health * citizen.health; }
 		case CitizenStat.Sleep:
 			return 10000f * citizen.sleep / 0.4f;
 		case CitizenStat.SocialHealth:
@@ -142,7 +153,8 @@ public class CitizenAI : MonoBehaviour
 
 	List<Action> getActionsFromData(List<int> path) {
 		List<Action> list = new List<Action> ();
-		foreach (int index in path) {
+		for (int i=0; i < path.Count; i++) {
+			int index = path[i];
 			CitizenBehaviourElement behaviour_element = behaviour_list [index];
 			switch (behaviour_element.type) {
 			case BehaviourType.MoveToNearest:
@@ -156,6 +168,9 @@ public class CitizenAI : MonoBehaviour
 				list.Add (new Action (ActionType.Wait, behaviour_element.time));
 				break;
 			case BehaviourType.GetWork:
+				Job getAJob = tryToGetAJob();
+				list.Add (new Action (ActionType.Wait, 5f));
+				if (getAJob != null) { citizen.job = getAJob; behaviour_list = MakeBehaviourElements.getBehaviours (citizen); } else { i += 10; }
 				break;
 			}
 		}
@@ -167,10 +182,8 @@ public class CitizenAI : MonoBehaviour
 	List<Action> getMovementAction(CitizenBehaviourElement movement_behaviour) {
 		List<Coords2D> movement_path;
 		List<Action> actions = new List<Action> ();
-		if (movement_behaviour.type == BehaviourType.MoveToNearest) 
-		{ movement_path = getPathDataToCloserBuildingType ((BuildingType)(movement_behaviour.objective), citizen.current_coords).Value; } 
-		else 
-		{ movement_path = getPathDataToSpecific (movement_behaviour.objective).Value; }
+		if (movement_behaviour.type == BehaviourType.MoveToNearest) { movement_path = getPathDataToCloserBuildingType ((BuildingType)(movement_behaviour.objective), citizen.current_coords).Value; } 
+		else { movement_path = getPathDataToSpecific (movement_behaviour.objective).Value; }
 		foreach (Coords2D coords in movement_path) { actions.Add (new Action (ActionType.Move, coords.toVector2 ())); }
 		foreach (EntranceNode node in world.entrances) {
 			Coords2D last_coords = movement_path [movement_path.Count - 1];
@@ -208,10 +221,26 @@ public class CitizenAI : MonoBehaviour
 			return new Action (ActionType.Wait, 20f, CitizenStat.Health, 1f);
 		case CitizenStat.Sleep:
 			return new Action (ActionType.Wait, 20f, CitizenStat.Sleep, 0.8f);
+		case CitizenStat.Happiness:
+			return new Action (ActionType.Wait, 0f, CitizenStat.Happiness, 0.2f);
+		case CitizenStat.SocialHealth:
+			return new Action (ActionType.Wait, 0f, CitizenStat.SocialHealth, 0.8f);
 		default:
 			return new Action (ActionType.Wait, 0f, CitizenStat.None, 0f);
 		}
 
+	}
+
+
+	// Returns a Job if was recruited
+	Job tryToGetAJob() {
+		WholeBuilding potential_workplace = building_manager.pickAWorkplace ();
+		float score = Random.value;
+		float min_score = (float)potential_workplace.employees.Count / (float)potential_workplace.capacity;
+		if (score >= min_score) {
+			return new Job (potential_workplace, citizen);
+		}
+		return null;
 	}
 
 

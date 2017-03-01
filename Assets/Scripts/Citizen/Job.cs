@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Job : MonoBehaviour {
+public class Job : MonoBehaviour 
+{
 
-	// Use this for initialization
-	void Start () {
-		
+	public WholeBuilding employer;
+	public Citizen employee;
+	public float pay_per_session;
+	public int number_of_sessions;
+
+	public Job(WholeBuilding workplace, Citizen employee) {
+		employer = workplace;
+		this.employee = employee;
+		pay_per_session = workplace.default_pay;
+		number_of_sessions = 0;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

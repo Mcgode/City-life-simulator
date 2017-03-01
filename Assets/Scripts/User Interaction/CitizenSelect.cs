@@ -48,6 +48,14 @@ public class CitizenSelect : MonoBehaviour
 		text += "Health: " + Mathf.Round (citizen.health * 100f).ToString () + "\tMoney: " + citizen.money.ToString () + "\n";
 		text += "Hunger: " + Mathf.Round (citizen.hunger * 100f).ToString () + "\tSleep: " + Mathf.Round (citizen.sleep * 100f).ToString () + "\n";
 		text += "Social health: " + Mathf.Round (citizen.social_health * 100f).ToString () + "\tHappieness: " + Mathf.Round (citizen.happieness * 100f).ToString () + "\n";
+		text += "Ideal money: " + Mathf.Round (citizen.ideal_money).ToString() + "\n";
+		if (citizen.job != null) {
+			text += "\nCurrently has a job:\n";
+			text += "  Works at " + citizen.job.employer.gameObject.name + "\n";
+			text += "  Salary: " + citizen.job.pay_per_session.ToString() + "\n";
+		} else {
+			text += "\nCurrently has no job\n";
+		}
 		text += "\n" + citizen.ai.current_status;
 		tooltip.text = text;
 	}

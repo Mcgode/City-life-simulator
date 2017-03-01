@@ -17,7 +17,7 @@ public class MakeBehaviourElements : MonoBehaviour {
 		behaviour_list.Add (start);
 
 		CitizenBehaviourElement get_work = new CitizenBehaviourElement (
-			"Get a work",
+			"Get a job",
 			new List<CitizenBehaviourElement>() { start },
 			BehaviourType.GetWork,
 			0f
