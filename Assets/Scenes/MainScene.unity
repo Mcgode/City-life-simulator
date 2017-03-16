@@ -1243,6 +1243,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 567627950}
+  - {fileID: 1452821063}
   m_Father: {fileID: 350381643}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2903,6 +2904,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &287134494
 GameObject:
   m_ObjectHideFlags: 0
@@ -4739,6 +4742,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &557344599
 GameObject:
   m_ObjectHideFlags: 0
@@ -6912,6 +6917,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &716729763
 GameObject:
   m_ObjectHideFlags: 0
@@ -7497,6 +7504,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &786017873
 GameObject:
   m_ObjectHideFlags: 0
@@ -8538,6 +8547,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &884286860
 GameObject:
   m_ObjectHideFlags: 0
@@ -8895,6 +8906,82 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
+--- !u!1 &907970172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 907970173}
+  - component: {fileID: 907970175}
+  - component: {fileID: 907970174}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &907970173
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 907970172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1452821063}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -10, y: -10}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &907970174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 907970172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &907970175
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 907970172}
 --- !u!1 &908573993
 GameObject:
   m_ObjectHideFlags: 0
@@ -8946,6 +9033,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &910520959
 GameObject:
   m_ObjectHideFlags: 0
@@ -10484,6 +10573,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &1114893037
 GameObject:
   m_ObjectHideFlags: 0
@@ -11601,6 +11692,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &1181584362
 GameObject:
   m_ObjectHideFlags: 0
@@ -11729,6 +11822,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &1204743099
 GameObject:
   m_ObjectHideFlags: 0
@@ -11788,6 +11883,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &1222860876
 GameObject:
   m_ObjectHideFlags: 0
@@ -14121,6 +14218,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &1450100656
 GameObject:
   m_ObjectHideFlags: 0
@@ -14197,6 +14296,75 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1452821062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1452821063}
+  - component: {fileID: 1452821065}
+  - component: {fileID: 1452821064}
+  m_Layer: 5
+  m_Name: CitizenTooltip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1452821063
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452821062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 907970173}
+  m_Father: {fileID: 102681332}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 0}
+  m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &1452821064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452821062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1452821065
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452821062}
 --- !u!1 &1454584763
 GameObject:
   m_ObjectHideFlags: 0
@@ -14551,6 +14719,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &1475361138
 GameObject:
   m_ObjectHideFlags: 0
@@ -14994,6 +15164,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &1538137818
 GameObject:
   m_ObjectHideFlags: 0
@@ -17029,6 +17201,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &1737761363
 GameObject:
   m_ObjectHideFlags: 0
@@ -18333,6 +18507,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &1844143698
 GameObject:
   m_ObjectHideFlags: 0
@@ -18382,6 +18558,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &1846206754
 GameObject:
   m_ObjectHideFlags: 0
@@ -20242,6 +20420,8 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
+  employees: []
+  default_pay: 0
 --- !u!1 &2078508468
 GameObject:
   m_ObjectHideFlags: 0
