@@ -10,7 +10,7 @@ public class WholeBuilding : MonoBehaviour
 	public int capacity_per_block = 2;
 	public int capacity = 0;
 	public List<Citizen> inhabitants;
-	public List<Job> employees;
+	public List<Job> employees = new List<Job> ();
 	public float default_pay = 100f;
 
 	public void registerEntrance(EntranceNode entrance) {

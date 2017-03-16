@@ -213,7 +213,7 @@ public class CitizenAI : MonoBehaviour
 		case CitizenStat.None:
 			return new Action (ActionType.Wait, 5f);
 		case CitizenStat.Money:
-			if (citizen.job) { return new Action (ActionType.Wait, 0f, CitizenStat.Money, 100f); }
+			if (citizen.job != null) { return new Action (ActionType.Wait, 0f, CitizenStat.Money, 100f); }
 			return new Action (ActionType.Wait, 0f, CitizenStat.Money, 0f);
 		case CitizenStat.Hunger:
 			return new Action (ActionType.Wait, 0f, CitizenStat.Hunger, 0.4f);
@@ -235,9 +235,12 @@ public class CitizenAI : MonoBehaviour
 	// Returns a Job if was recruited
 	Job tryToGetAJob() {
 		WholeBuilding potential_workplace = building_manager.pickAWorkplace ();
+		if (potential_workplace == null) { return null; }
 		float score = Random.value;
 		float min_score = (float)potential_workplace.employees.Count / (float)potential_workplace.capacity;
-		if (score >= min_score) {
+		print ("Score : " + score.ToString() + "/" + min_score.ToString() + " => " + (score - min_score).ToString());
+		if (score - min_score >= 0f) {
+			print("Got new job!");
 			return new Job (potential_workplace, citizen);
 		}
 		return null;

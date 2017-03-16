@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Job : MonoBehaviour 
+public class Job 
 {
 
 	public WholeBuilding employer;
