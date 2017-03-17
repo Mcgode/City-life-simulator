@@ -132,7 +132,7 @@ public class CitizenAI : MonoBehaviour
 			return 0f;
 		case CitizenStat.Money:
 			float current_money = citizen.money, ideal_money = citizen.ideal_money;
-			if (current_money > 1.1f * ideal_money) { return 10000f; } 
+			if (current_money > 1.1f * ideal_money) { return 20000f; } 
 			else if (current_money < 0.1f * ideal_money) { return 0f; }
 			else { return 10000f * (current_money - 0.1f * ideal_money) / ideal_money; }
 		case CitizenStat.Hunger:
@@ -184,6 +184,7 @@ public class CitizenAI : MonoBehaviour
 		List<Action> actions = new List<Action> ();
 		if (movement_behaviour.type == BehaviourType.MoveToNearest) { movement_path = getPathDataToCloserBuildingType ((BuildingType)(movement_behaviour.objective), citizen.current_coords).Value; } 
 		else { movement_path = getPathDataToSpecific (movement_behaviour.objective).Value; }
+		if (movement_path.Count == 0) { return actions; }
 		foreach (Coords2D coords in movement_path) { actions.Add (new Action (ActionType.Move, coords.toVector2 ())); }
 		foreach (EntranceNode node in world.entrances) {
 			Coords2D last_coords = movement_path [movement_path.Count - 1];
@@ -213,7 +214,7 @@ public class CitizenAI : MonoBehaviour
 		case CitizenStat.None:
 			return new Action (ActionType.Wait, 5f);
 		case CitizenStat.Money:
-			if (citizen.job != null) { return new Action (ActionType.Wait, 0f, CitizenStat.Money, 100f); }
+			if (citizen.job != null) { return new Action (ActionType.Wait, 10f, CitizenStat.Money, 200f); }
 			return new Action (ActionType.Wait, 0f, CitizenStat.Money, 0f);
 		case CitizenStat.Hunger:
 			return new Action (ActionType.Wait, 0f, CitizenStat.Hunger, 0.4f);

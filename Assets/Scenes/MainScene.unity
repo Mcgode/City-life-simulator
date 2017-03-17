@@ -1244,6 +1244,7 @@ RectTransform:
   m_Children:
   - {fileID: 567627950}
   - {fileID: 1452821063}
+  - {fileID: 1969414484}
   m_Father: {fileID: 350381643}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2904,7 +2905,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &287134494
 GameObject:
@@ -3778,6 +3778,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linkedBuilding: {fileID: 2075983450}
   buildingEntranceDirection: 4
+--- !u!1 &423895800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 423895801}
+  m_Layer: 5
+  m_Name: Sliding Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &423895801
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423895800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1876158991}
+  m_Father: {fileID: 1969414484}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &436445599
 GameObject:
   m_ObjectHideFlags: 0
@@ -4742,7 +4776,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &557344599
 GameObject:
@@ -6917,7 +6950,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &716729763
 GameObject:
@@ -7504,7 +7536,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &786017873
 GameObject:
@@ -8547,7 +8578,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &884286860
 GameObject:
@@ -8906,7 +8936,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &907970172
 GameObject:
@@ -9033,7 +9062,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &910520959
 GameObject:
@@ -10573,7 +10601,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &1114893037
 GameObject:
@@ -11692,7 +11719,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &1181584362
 GameObject:
@@ -11822,7 +11848,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &1204743099
 GameObject:
@@ -11883,7 +11908,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &1222860876
 GameObject:
@@ -14218,7 +14242,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &1450100656
 GameObject:
@@ -14719,7 +14742,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &1475361138
 GameObject:
@@ -15164,7 +15186,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &1538137818
 GameObject:
@@ -17201,7 +17222,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &1737761363
 GameObject:
@@ -18507,7 +18527,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &1844143698
 GameObject:
@@ -18558,7 +18577,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &1846206754
 GameObject:
@@ -18790,6 +18808,74 @@ SpriteRenderer:
   m_Color: {r: 0, g: 0.04827547, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1876158990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1876158991}
+  - component: {fileID: 1876158993}
+  - component: {fileID: 1876158992}
+  m_Layer: 5
+  m_Name: Handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1876158991
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876158990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 423895801}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1876158992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876158990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1876158993
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876158990}
 --- !u!1 &1883927933
 GameObject:
   m_ObjectHideFlags: 0
@@ -18894,7 +18980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad51b38a9c99f40fc97b447cfde2c4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount_of_citizen: 10
+  amount_of_citizen: 3
 --- !u!4 &1897352813
 Transform:
   m_ObjectHideFlags: 0
@@ -19608,6 +19694,145 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6078e89b09cf14aa6869638cd5715f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1969414483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1969414484}
+  - component: {fileID: 1969414488}
+  - component: {fileID: 1969414487}
+  - component: {fileID: 1969414486}
+  - component: {fileID: 1969414485}
+  m_Layer: 5
+  m_Name: Scrollbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1969414484
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1969414483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 423895801}
+  m_Father: {fileID: 102681332}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -5}
+  m_SizeDelta: {x: 160, y: 20}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1969414485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1969414483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaeae878fc994bbbbe5731c564868e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1969414486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1969414483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2061169968, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1876158992}
+  m_HandleRect: {fileID: 1876158991}
+  m_Direction: 0
+  m_Value: 0.4
+  m_Size: 0.1
+  m_NumberOfSteps: 11
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1969414485}
+        m_MethodName: ScrollUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Scrollbar+ScrollEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1969414487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1969414483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1969414488
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1969414483}
 --- !u!1 &1974322185
 GameObject:
   m_ObjectHideFlags: 0
@@ -20420,7 +20645,6 @@ MonoBehaviour:
   capacity_per_block: 2
   capacity: 0
   inhabitants: []
-  employees: []
   default_pay: 0
 --- !u!1 &2078508468
 GameObject:

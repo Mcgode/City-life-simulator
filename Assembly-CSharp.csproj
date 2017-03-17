@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\User Interaction\CentralButtonClickManager.cs" />
      <Compile Include="Assets\Scripts\User Interaction\CitizenSelect.cs" />
      <Compile Include="Assets\Scripts\User Interaction\NodeInteraction.cs" />
+     <Compile Include="Assets\Scripts\User Interaction\TimeScroll.cs" />
      <Compile Include="Assets\Scripts\World\Coords2D.cs" />
      <Compile Include="Assets\Scripts\World\Directions.cs" />
      <Compile Include="Assets\Scripts\World\EntranceNode.cs" />

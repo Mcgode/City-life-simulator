@@ -27,6 +27,7 @@ public class CitizenOverseer : MonoBehaviour {
 			new_citizen_object.transform.position = (Vector3)(coords.toVector2 ()) + Vector3.back * 1.5f;
 			new_citizen_object.transform.SetParent (transform);
 			new_citizen.ideal_money = 1000f + Random.value * 5000f;
+			new_citizen.money = 1000f + Random.value * new_citizen.ideal_money;
 			while (new_citizen.home == null) {
 				int j = Mathf.FloorToInt (Random.value * building_manager.buildings [BuildingType.Housing].Count);
 				WholeBuilding building = building_manager.buildings [BuildingType.Housing] [j];
