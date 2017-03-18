@@ -87,6 +87,7 @@
 'Assets/Scripts/Citizen/CitizenAI.cs'
 'Assets/Scripts/Citizen/CitizenBehaviourElement.cs'
 'Assets/Scripts/Citizen/CitizenOverseer.cs'
+'Assets/Scripts/Citizen/Items.cs'
 'Assets/Scripts/Citizen/Job.cs'
 'Assets/Scripts/Citizen/MakeBehaviourElements.cs'
 'Assets/Scripts/General/GraphTools.cs'

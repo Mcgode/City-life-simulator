@@ -75,6 +75,7 @@ public class CitizenAI : MonoBehaviour
 		switch (behaviour_element.type) {
 		case BehaviourType.None:
 			value = (float)(behaviour_element.objective);
+			if (behaviour_element.required_item != Items.None) {  }
 			break;
 		case BehaviourType.MoveToNearest:
 			value = 10f * getPathDataToCloserBuildingType ((BuildingType)(behaviour_element.objective), citizen.current_coords).Key;
@@ -151,6 +152,18 @@ public class CitizenAI : MonoBehaviour
 	}
 
 
+	float getValueWithRequiredItem(CitizenBehaviourElement behaviour_element, CitizenBehaviourElement last_element) {
+		if ((last_element.objective).GetType() == typeof(SpendMoneyInfo)) {
+			SpendMoneyInfo info = (SpendMoneyInfo)(last_element.objective);
+			if (info.good_to_buy == behaviour_element.required_item) {
+				return info.money_to_spend * citizen.ideal_money / citizen.money;
+			}
+			return 10000f;
+		}
+		return 0f;
+	}
+
+
 	List<Action> getActionsFromData(List<int> path) {
 		List<Action> list = new List<Action> ();
 		for (int i=0; i < path.Count; i++) {
@@ -165,7 +178,7 @@ public class CitizenAI : MonoBehaviour
 				list.Add (getStatAction (behaviour_element));
 				break;
 			case BehaviourType.None:
-				list.Add (new Action (ActionType.Wait, behaviour_element.time));
+				list.AddRange (getNoneAction (behaviour_element));
 				break;
 			case BehaviourType.GetWork:
 				Job getAJob = tryToGetAJob();
@@ -245,6 +258,19 @@ public class CitizenAI : MonoBehaviour
 			return new Job (potential_workplace, citizen);
 		}
 		return null;
+	}
+
+
+	List<Action> getNoneAction(CitizenBehaviourElement behaviour) {
+		List<Action> actions_to_perform = new List<Action> ();
+		if (behaviour.objective.GetType () == typeof(SpendMoneyInfo)) {
+			SpendMoneyInfo info = (SpendMoneyInfo)(behaviour.objective);
+			actions_to_perform.Add (new Action (ActionType.Spend, info.good_to_buy, info.money_to_spend, info.amount));
+		} else if (behaviour.required_item != Items.None) {
+			actions_to_perform.Add (new Action (ActionType.Inventory, behaviour.required_item, -(int)(behaviour.objective)));
+		}
+		actions_to_perform.Add (new Action (ActionType.Wait, behaviour.time));
+		return actions_to_perform;
 	}
 
 

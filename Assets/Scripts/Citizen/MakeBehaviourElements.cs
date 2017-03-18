@@ -60,7 +60,8 @@ public class MakeBehaviourElements : MonoBehaviour {
 			"Buy food",
 			new List<CitizenBehaviourElement>() { get_food },
 			BehaviourType.SpendMoney,
-			new SpendMoneyInfo(10f, "food", 10)
+			new SpendMoneyInfo(10f, Items.Food, 10),
+			2f
 		);
 		behaviour_list.Add (buy_food);
 
@@ -77,8 +78,9 @@ public class MakeBehaviourElements : MonoBehaviour {
 			"Cook",
 			new List<CitizenBehaviourElement>() { go_home },
 			BehaviourType.None,
-			0f,
-			5f
+			1,
+			5f,
+			Items.Food
 		);
 		behaviour_list.Add (cook);
 
@@ -134,9 +136,19 @@ public class MakeBehaviourElements : MonoBehaviour {
 			"Get a drink",
 			new List<CitizenBehaviourElement>() { go_to_bar },
 			BehaviourType.SpendMoney,
-			new SpendMoneyInfo(10f, "drink", 1)
+			new SpendMoneyInfo(10f, Items.Drink, 1)
 		);
 		behaviour_list.Add (get_drink);
+
+		CitizenBehaviourElement drink = new CitizenBehaviourElement (
+			"Drink",
+			new List<CitizenBehaviourElement>() { get_drink },
+			BehaviourType.None,
+			0f,
+			5f,
+			Items.Drink
+		);
+		behaviour_list.Add (drink);
 
 		CitizenBehaviourElement go_to_park = new CitizenBehaviourElement (
 			"Go to the park",

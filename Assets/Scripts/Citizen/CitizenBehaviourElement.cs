@@ -9,14 +9,16 @@ public struct CitizenBehaviourElement {
 	public BehaviourType type;
 	public object objective;
 	public float time;
+	public Items required_item;
 
 
-	public CitizenBehaviourElement(string desc, List<CitizenBehaviourElement> canComeFrom, BehaviourType behaviour_type, object objective, float time = 0f) {
+	public CitizenBehaviourElement(string desc, List<CitizenBehaviourElement> canComeFrom, BehaviourType behaviour_type, object objective, float time = 0f, Items requires = Items.None) {
 		description = desc;
 		this.canComeFrom = canComeFrom;
 		type = behaviour_type;
 		this.objective = objective;
 		this.time = time;
+		required_item = requires;
 	}
 
 	public override bool Equals(object obj) {
@@ -41,11 +43,11 @@ public enum BehaviourType {
 
 public struct SpendMoneyInfo {
 
-	float money_to_spend;
-	string good_to_buy;
-	int amount;
+	public float money_to_spend;
+	public Items good_to_buy;
+	public int amount;
 
-	public SpendMoneyInfo(float price, string article, int amount) {
+	public SpendMoneyInfo(float price, Items article, int amount) {
 		money_to_spend = price;
 		good_to_buy = article;
 		this.amount = amount;

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Citizen : MonoBehaviour 
@@ -30,6 +31,8 @@ public class Citizen : MonoBehaviour
 	float time_since_action_begining = 0f;
 	public Coords2D current_coords;
 
+	public Dictionary<Items, int> inventory = new Dictionary<Items, int>();
+
 
 	public override int GetHashCode () { return this.id; }
 
@@ -50,6 +53,9 @@ public class Citizen : MonoBehaviour
 			ai = GetComponent<CitizenAI> ();
 		}
 		queued_actions.Add (new Action (ActionType.Wait, (Vector2)transform.position));
+		foreach (Items item in Enum.GetValues(typeof(Items))) {
+			inventory.Add (item, 0);
+		}
 	}
 
 
@@ -57,20 +63,34 @@ public class Citizen : MonoBehaviour
 	void FixedUpdate() {
 		if (good_to_go) {
 			time_since_action_begining += Time.fixedDeltaTime * Time.timeScale;
-			if (current_action != null) {
-				if (current_action.type == ActionType.Move) {
-					updateMoveAction ();
-				} else {
-					updateWaitAction ();
-				}
-			} else {
-				current_action = getNextAction ();
-				if (current_action == null) {
-					ai.planNext ();
-				}
-			}
-
+			updateActions ();
 			applyStatAttrition ();
+		}
+	}
+		
+	// Updates current action if there is one, else will get the next plan 
+	void updateActions() {
+		if (current_action != null) {
+			switch (current_action.type) {
+			case ActionType.Move:
+				updateMoveAction ();
+				break;
+			case ActionType.Wait:
+				updateWaitAction ();
+				break;
+			case ActionType.Inventory:
+				makeInventoryAction ();
+				break;
+			case ActionType.Spend:
+				break;
+			}
+		} else {
+			current_action = getNextAction ();
+			if (current_action == null) {
+				ai.planNext ();
+			} else {
+				updateActions ();
+			}
 		}
 	}
 
@@ -99,6 +119,21 @@ public class Citizen : MonoBehaviour
 				ai.planNext ();
 			}
 		}
+	}
+
+	// Deals with actions of type Inventory
+	void makeInventoryAction() {
+		inventory [current_action.item] += current_action.inventory_change;
+		current_action = getNextAction ();
+		updateActions ();
+	}
+
+	// Deals with actions of type Inventory
+	void makeSpendAction() {
+		inventory [current_action.item] += Mathf.Abs(current_action.inventory_change);
+		money -= Mathf.Abs(current_action.money_spent);
+		current_action = getNextAction ();
+		updateActions ();
 	}
 
 

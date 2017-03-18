@@ -10,6 +10,9 @@ public class Action {
 	public CitizenStat reward;
 	public float total_reward;
 	public Coords2D position_coords;
+	public Items item;
+	public int inventory_change;
+	public float money_spent;
 
 	public Action(ActionType action_type, Vector2 at) {
 		type = action_type;
@@ -38,11 +41,26 @@ public class Action {
 		position_coords = new Coords2D (0, 0);
 	}
 
+	public Action(ActionType action_type, Items inventory_item, int change) {
+		type = action_type;
+		item = inventory_item;
+		inventory_change = change;
+	}
+
+	public Action(ActionType action_type, Items inventory_item, float money_spent, int change) {
+		type = action_type;
+		item = inventory_item;
+		this.money_spent = money_spent; 
+		inventory_change = change;
+	}
+
 }
 
 
 public enum ActionType
 {
 	Move,
-	Wait
+	Wait,
+	Inventory,
+	Spend
 }

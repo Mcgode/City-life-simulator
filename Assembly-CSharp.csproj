@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Citizen\CitizenAI.cs" />
      <Compile Include="Assets\Scripts\Citizen\CitizenBehaviourElement.cs" />
      <Compile Include="Assets\Scripts\Citizen\CitizenOverseer.cs" />
+     <Compile Include="Assets\Scripts\Citizen\Items.cs" />
      <Compile Include="Assets\Scripts\Citizen\Job.cs" />
      <Compile Include="Assets\Scripts\Citizen\MakeBehaviourElements.cs" />
      <Compile Include="Assets\Scripts\General\GraphTools.cs" />
