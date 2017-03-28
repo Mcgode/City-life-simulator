@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.IO.IsolatedStorage;
 using UnityEngine;
 
 public class CitizenAI : MonoBehaviour 
@@ -16,6 +15,7 @@ public class CitizenAI : MonoBehaviour
 	bool currently_planning = false;
 
 	public string current_status = "";
+	public string additionnal_info = "";
 
 
 	// Get all important data initialized
@@ -37,6 +37,7 @@ public class CitizenAI : MonoBehaviour
 	// The AI plans the next thread of actions
 	public void planNext() {
 		if (!currently_planning) {
+			additionnal_info = "";
 			makeLinks ();
 			currently_planning = true;
 			List<int> plan = GraphTools.getShortestDistanceToNodeList (links, 0, get_stat_behaviours);
@@ -74,8 +75,8 @@ public class CitizenAI : MonoBehaviour
 
 		switch (behaviour_element.type) {
 		case BehaviourType.None:
-			value = (float)(behaviour_element.objective);
-			if (behaviour_element.required_item != Items.None) {  }
+			if (behaviour_element.objective.GetType() == typeof(float)) { value = (float)(behaviour_element.objective); }
+			if (behaviour_element.required_item != Items.None) { dealWithRequiredItem (behaviour_element); value = 0f; }
 			break;
 		case BehaviourType.MoveToNearest:
 			value = 10f * getPathDataToCloserBuildingType ((BuildingType)(behaviour_element.objective), citizen.current_coords).Key;
@@ -89,6 +90,9 @@ public class CitizenAI : MonoBehaviour
 			break;
 		case BehaviourType.GetWork:
 			value = 1000f;
+			break;
+		case BehaviourType.SpendMoney:
+			value = 10000f * ((SpendMoneyInfo)(behaviour_element.objective)).money_to_spend / citizen.money;
 			break;
 		}
 		return value;
@@ -152,15 +156,28 @@ public class CitizenAI : MonoBehaviour
 	}
 
 
-	float getValueWithRequiredItem(CitizenBehaviourElement behaviour_element, CitizenBehaviourElement last_element) {
-		if ((last_element.objective).GetType() == typeof(SpendMoneyInfo)) {
-			SpendMoneyInfo info = (SpendMoneyInfo)(last_element.objective);
-			if (info.good_to_buy == behaviour_element.required_item) {
-				return info.money_to_spend * citizen.ideal_money / citizen.money;
+	// Returns a value depending on the citizen capacity to have the given item up to the previous action. 
+	// Returns a value superior to 10 000 if cannot, to prevent action from happening.
+	// For that purpose, it needs to trace back behaviour tree if no item was found in inventory 
+	void dealWithRequiredItem(CitizenBehaviourElement behaviour_element) {
+		additionnal_info += "  Element \"" + behaviour_element.description + "\" requires an item (" + behaviour_element.required_item.ToString() + ")\n";
+		if (citizen.inventory [behaviour_element.required_item] <= 0) {
+			foreach (List<CitizenBehaviourElement> path in determinePossiblePaths(behaviour_element)) {
+				additionnal_info += "    " + Utils.behaviourPathToString(path) + "\n";
 			}
-			return 10000f;
+			List<KeyValuePair<int, int>> result = dealWithBuyPaths (behaviour_element);
+			additionnal_info += "  Links to break:\n";
+			foreach (KeyValuePair<int, int> kvp in result) {
+				additionnal_info += "    " + descriptions[kvp.Key] + " -> " + descriptions[kvp.Value] + "\n"; 
+				for (int i = 0; i < links[kvp.Key].Count; i++) {
+					if (links [kvp.Key] [i].Key == kvp.Value) {
+						links [kvp.Key] [i] = new KeyValuePair<int, float>(kvp.Value, 10000f);
+						break;
+					}
+				}
+			}
 		}
-		return 0f;
+
 	}
 
 
@@ -271,6 +288,165 @@ public class CitizenAI : MonoBehaviour
 		}
 		actions_to_perform.Add (new Action (ActionType.Wait, behaviour.time));
 		return actions_to_perform;
+	}
+
+
+	// Recursively determines the possible paths from "Start" (or else, but it is an error, since that means your first element is inaccessible) to the given depart element 
+	List<List<CitizenBehaviourElement>> determinePossiblePaths(CitizenBehaviourElement depart_element) {
+		List<CitizenBehaviourElement> previous_elements = depart_element.canComeFrom;
+		List<List<CitizenBehaviourElement>> paths = new List<List<CitizenBehaviourElement>> ();
+
+		if (previous_elements.Count == 0) {
+			return new List<List<CitizenBehaviourElement>> () { new List<CitizenBehaviourElement>() { depart_element } };
+		}
+
+		foreach (CitizenBehaviourElement element in previous_elements) {
+			foreach (List<CitizenBehaviourElement> list in determinePossiblePaths(element)) {
+				list.Add (depart_element);
+				paths.Add (list);
+			}
+		}
+		return paths;
+	}
+
+
+	// Returns the list of links to "break" (by putting their values to 10,000) since they lead to paths where you can't buy the required item
+	List<KeyValuePair<int, int>> dealWithBuyPaths(CitizenBehaviourElement element) {
+		List<KeyValuePair<int, int>> links_to_break = new List<KeyValuePair<int, int>> ();
+		List<List<CitizenBehaviourElement>> paths = determinePossiblePaths (element);
+		paths = cleanPossiblePaths (paths);
+		List<List<CitizenBehaviourElement>> working_paths = getWorkingPaths (paths, element);
+		List<List<CitizenBehaviourElement>> path_with_no_buy_option = getNoBuyPath(paths, element.required_item);
+		List<int> indexes = workingPathsPostProcess (working_paths, element.required_item);
+		indexes.Sort (); 
+		indexes.Reverse ();
+		foreach (int index in indexes) {
+			path_with_no_buy_option.Add (working_paths [index]);
+			working_paths.RemoveAt (index);
+		}
+		additionnal_info += "  Working paths:\n";
+		foreach (List<CitizenBehaviourElement> path in working_paths) { additionnal_info += "    " + Utils.behaviourPathToString(path) + "\n"; }
+		additionnal_info += "  Not working paths:\n";
+		foreach (List<CitizenBehaviourElement> path in path_with_no_buy_option) { additionnal_info += "    " + Utils.behaviourPathToString(path) + "\n"; }
+		foreach (List<CitizenBehaviourElement> path in path_with_no_buy_option) {
+			List<int> working_path_current_index = new List<int> ();
+			for (int i = 0; i < working_paths.Count; i++) { working_path_current_index.Add (0); }
+			for (int i = 1; i < path.Count; i++) {
+				CitizenBehaviourElement step = path [i];
+				bool got_a_link = false;
+				for (int j = 0; j < working_paths.Count; j++) {
+					int index = working_paths [j].IndexOf (step);
+					if (index == working_path_current_index[j] + 1) {
+						got_a_link = true;
+					}
+					working_path_current_index [j] = Mathf.Max (working_path_current_index [j], index);
+				}
+				if (!got_a_link) {
+					links_to_break.Add (new KeyValuePair<int, int> (descriptions.IndexOf (path [i - 1].description), descriptions.IndexOf (path [i].description)));
+					break;
+				}
+			}
+		}
+		return links_to_break;
+	}
+		
+
+	List<List<CitizenBehaviourElement>> getWorkingPaths(List<List<CitizenBehaviourElement>> paths, CitizenBehaviourElement element) {
+		List<List<CitizenBehaviourElement>> working_paths = new List<List<CitizenBehaviourElement>> ();
+		foreach (List<CitizenBehaviourElement> path in paths) {
+			for (int i = 0; i < path.Count; i++) {
+				CitizenBehaviourElement path_element = path[i];
+				if (path_element.objective.GetType () == typeof(SpendMoneyInfo) && ((SpendMoneyInfo)(path_element.objective)).good_to_buy == element.required_item) {
+					working_paths.Add (path);
+					break;
+				}
+			}
+		}
+		return working_paths;
+	}
+
+
+	List<List<CitizenBehaviourElement>> getNoBuyPath(List<List<CitizenBehaviourElement>> paths, Items required_item) {
+		List<List<CitizenBehaviourElement>> not_working_paths = new List<List<CitizenBehaviourElement>> ();
+		foreach (List<CitizenBehaviourElement> path in paths) {
+			bool got_a_buying_element = false;
+			foreach (CitizenBehaviourElement element in path) {
+				if (element.objective.GetType () == typeof(SpendMoneyInfo) && ((SpendMoneyInfo)(element.objective)).good_to_buy == required_item) {
+					got_a_buying_element = true;
+				}
+			}
+			if (!got_a_buying_element) { not_working_paths.Add (path); }
+		}
+		return not_working_paths;
+	}
+
+
+	List<int> workingPathsPostProcess(List<List<CitizenBehaviourElement>> working_paths, Items required_item) {
+		List<int> indexes = new List<int> ();
+		Dictionary<CitizenBehaviourElement,List<List<CitizenBehaviourElement>>> paths_per_buy_item = new Dictionary<CitizenBehaviourElement, List<List<CitizenBehaviourElement>>> ();
+		foreach (List<CitizenBehaviourElement> path in working_paths) {
+			foreach (CitizenBehaviourElement element in path) {
+				if (element.objective.GetType () == typeof(SpendMoneyInfo) && ((SpendMoneyInfo)(element.objective)).good_to_buy == required_item) {
+					if (!paths_per_buy_item.ContainsKey (element)) {
+						paths_per_buy_item.Add (element, new List<List<CitizenBehaviourElement>>());
+					}
+					paths_per_buy_item[element].Add (path);
+				}
+			}
+		}
+		Dictionary<CitizenBehaviourElement, float> shortest_distances = new Dictionary<CitizenBehaviourElement, float> ();
+		foreach (KeyValuePair<CitizenBehaviourElement,List<List<CitizenBehaviourElement>>> kvp in paths_per_buy_item) {
+			float min = getDistanceOfPath(kvp.Value[0]);
+			foreach (List<CitizenBehaviourElement> path in kvp.Value) {
+				float distance = getDistanceOfPath (path);
+				if (distance < min) {
+					min = distance;
+				}
+			}
+			shortest_distances.Add (kvp.Key, min);
+		}
+		CitizenBehaviourElement shortest_element = null;
+		float min_tot = 200000f;
+		foreach (KeyValuePair<CitizenBehaviourElement, float> kvp in shortest_distances) {
+			if (kvp.Value < min_tot) {
+				min_tot = kvp.Value;
+				shortest_element = kvp.Key;
+			}
+		}
+		if (shortest_element != null) {
+			for (int i = 0; i < working_paths.Count; i++) {
+				if (!working_paths[i].Contains (shortest_element)) {
+					indexes.Add (i);
+				}
+			}
+		}
+		return indexes;
+	}
+
+
+	float getDistanceOfPath(List<CitizenBehaviourElement> path) {
+		float distance = 0f;
+		for (int i = 1; i < path.Count; i++) {
+			int int1 = descriptions.IndexOf (path [i - 1].description);
+			int int2 = descriptions.IndexOf (path [i].description);
+			foreach (KeyValuePair<int, float> link in links[int1]) {
+				if (link.Key == int2) {
+					distance += link.Value;
+					break;
+				}
+			}
+		}
+		return distance;
+	}
+
+	List<List<CitizenBehaviourElement>> cleanPossiblePaths(List<List<CitizenBehaviourElement>> original) {
+		List<List<CitizenBehaviourElement>> cleaned = new List<List<CitizenBehaviourElement>> ();
+		foreach (List<CitizenBehaviourElement> path in original) {
+			if (path [0].description == "Start") {
+				cleaned.Add (path);
+			}
+		}
+		return cleaned;
 	}
 
 

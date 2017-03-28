@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Citizen\Job.cs" />
      <Compile Include="Assets\Scripts\Citizen\MakeBehaviourElements.cs" />
      <Compile Include="Assets\Scripts\General\GraphTools.cs" />
+     <Compile Include="Assets\Scripts\General\Utils.cs" />
      <Compile Include="Assets\Scripts\User Interaction\CameraInteraction.cs" />
      <Compile Include="Assets\Scripts\User Interaction\CentralButtonClickManager.cs" />
      <Compile Include="Assets\Scripts\User Interaction\CitizenSelect.cs" />

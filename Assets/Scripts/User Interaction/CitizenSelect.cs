@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class CitizenSelect : MonoBehaviour 
 {
+	
 	public bool active = true;
 	GameObject selected_citizen;
 	Text tooltip;
 
 
+	// On start, selects the tooltip Text object, for display purpose.
 	void Start() {
 		tooltip = GameObject.Find ("CitizenTooltip").transform.FindChild ("Text").gameObject.GetComponent<Text> ();
 	}
+
 	
-	// Update is called once per frame
+	// If left click pressed, calls Fire1Raycast; updates selected citizen's tooltip on every rendered frame.
 	void Update () {
 		if (Input.GetButtonDown ("Fire1") && active) { Fire1Raycast (); }
 
@@ -25,6 +28,8 @@ public class CitizenSelect : MonoBehaviour
 		}
 	}
 
+
+	// Selection raycast on citizen.
 	void Fire1Raycast() {
 		RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 		if (selected_citizen) {
@@ -42,6 +47,7 @@ public class CitizenSelect : MonoBehaviour
 	}
 
 
+	// Updates the citizen tooltip text
 	void updateTooltip() {
 		Citizen citizen = selected_citizen.GetComponent<Citizen> ();
 		string text = "Citizen n°" + citizen.id.ToString() + "\n";
@@ -57,6 +63,12 @@ public class CitizenSelect : MonoBehaviour
 			text += "\nCurrently has no job\n";
 		}
 		text += "\n" + citizen.ai.current_status;
+		text += "\nInventory:\n";
+		foreach (KeyValuePair<Items, int> kvp in citizen.inventory) {
+			text += "   " + kvp.Key.ToString () + ": " + kvp.Value.ToString() + "\n";
+		}
+		text += "\nAdditionnal info:\n" + citizen.ai.additionnal_info;
+		print ("Info: " + citizen.ai.additionnal_info);
 		tooltip.text = text;
 	}
 

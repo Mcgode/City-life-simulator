@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MakeBehaviourElements : MonoBehaviour {
+public class MakeBehaviourElements : MonoBehaviour 
+{
 
+	// Here we declare the different behaviour elements, to make the behaviour tree.
+	// Note that, even though the "Start" behaviour is necessary and must be the first in the list, the design should allow you to make the final behaviour tree however
+	// you want it to be.
+
+	// See the CitizenBehaviourElement struct for more info on those objects.
 	public static List<CitizenBehaviourElement> getBehaviours(Citizen citizen)
 	{
 		List<CitizenBehaviourElement> behaviour_list = new List<CitizenBehaviourElement> ();
@@ -79,8 +85,8 @@ public class MakeBehaviourElements : MonoBehaviour {
 			new List<CitizenBehaviourElement>() { go_home },
 			BehaviourType.None,
 			1,
-			5f,
-			Items.Food
+			Items.Food,
+			5f
 		);
 		behaviour_list.Add (cook);
 
@@ -145,8 +151,8 @@ public class MakeBehaviourElements : MonoBehaviour {
 			new List<CitizenBehaviourElement>() { get_drink },
 			BehaviourType.None,
 			0f,
-			5f,
-			Items.Drink
+			Items.Drink,
+			5f
 		);
 		behaviour_list.Add (drink);
 
