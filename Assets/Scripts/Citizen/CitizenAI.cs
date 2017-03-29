@@ -13,6 +13,7 @@ public class CitizenAI : MonoBehaviour
 	List<List<KeyValuePair<int, float>>> links;
 	public Citizen citizen;
 	bool currently_planning = false;
+	Coords2D last_coords = new Coords2D (0, 0);
 
 	public string current_status = "";
 	public string additionnal_info = "";
@@ -82,7 +83,7 @@ public class CitizenAI : MonoBehaviour
 			value = 10f * getPathDataToCloserBuildingType ((BuildingType)(behaviour_element.objective), citizen.current_coords).Key;
 			break;
 		case BehaviourType.MoveToSpecific:
-			if (behaviour_element.objective != null) { value = 10f * getPathDataToSpecific (behaviour_element.objective).Key; }
+			if (behaviour_element.objective != null) { value = 10f * getPathDataToSpecific (behaviour_element.objective, last_coords).Key; }
 			if (behaviour_element.description == "Go to work" && last_element.description == "Get a job") { value = 0f; }
 			break;
 		case BehaviourType.GetStat:
@@ -112,19 +113,19 @@ public class CitizenAI : MonoBehaviour
 
 
 	// Return the shortest path and its length to a WholeBuilding object
-	KeyValuePair<float, List<Coords2D>> getPathDataToSpecific(object objective) {
+	KeyValuePair<float, List<Coords2D>> getPathDataToSpecific(object objective, Coords2D depart) {
 		if (objective.GetType () == typeof(WholeBuilding)) {
 			List<Coords2D> entrance_indexes = new List<Coords2D> ();
 			foreach (EntranceNode entrance in ((WholeBuilding)(objective)).entrances) {
 				entrance_indexes.Add(Coords2D.getCoords(entrance.gameObject));
 			}
-			return world.pathfindFromCoordinatesMultipleTargets (citizen.current_coords, entrance_indexes);
+			return world.pathfindFromCoordinatesMultipleTargets (depart, entrance_indexes);
 		} else if (objective.GetType () == typeof(Job)) {
 			List<Coords2D> entrance_indexes = new List<Coords2D> ();
 			foreach (EntranceNode entrance in ((Job)(objective)).employer.entrances) {
 				entrance_indexes.Add(Coords2D.getCoords(entrance.gameObject));
 			}
-			return world.pathfindFromCoordinatesMultipleTargets (citizen.current_coords, entrance_indexes);
+			return world.pathfindFromCoordinatesMultipleTargets (depart, entrance_indexes);
 		}
 		return new KeyValuePair<float, List<Coords2D>> (20000f, new List<Coords2D> ());
 	}
@@ -182,6 +183,7 @@ public class CitizenAI : MonoBehaviour
 
 
 	List<Action> getActionsFromData(List<int> path) {
+		last_coords = citizen.current_coords;
 		List<Action> list = new List<Action> ();
 		for (int i=0; i < path.Count; i++) {
 			int index = path[i];
@@ -202,6 +204,10 @@ public class CitizenAI : MonoBehaviour
 				list.Add (new Action (ActionType.Wait, 5f));
 				if (getAJob != null) { citizen.job = getAJob; behaviour_list = MakeBehaviourElements.getBehaviours (citizen); } else { i += 10; }
 				break;
+			case BehaviourType.SpendMoney:
+				list.Add (getSpendAction (behaviour_element));
+				list.Add (new Action (ActionType.Wait, 3f));
+				break;
 			}
 		}
 		print ("We have " + list.Count.ToString() + " actions to perform");
@@ -212,12 +218,16 @@ public class CitizenAI : MonoBehaviour
 	List<Action> getMovementAction(CitizenBehaviourElement movement_behaviour) {
 		List<Coords2D> movement_path;
 		List<Action> actions = new List<Action> ();
-		if (movement_behaviour.type == BehaviourType.MoveToNearest) { movement_path = getPathDataToCloserBuildingType ((BuildingType)(movement_behaviour.objective), citizen.current_coords).Value; } 
-		else { movement_path = getPathDataToSpecific (movement_behaviour.objective).Value; }
+		if (movement_behaviour.type == BehaviourType.MoveToNearest) { 
+			movement_path = getPathDataToCloserBuildingType ((BuildingType)(movement_behaviour.objective), last_coords).Value; 
+		} else { 
+			movement_path = getPathDataToSpecific (movement_behaviour.objective, last_coords).Value; 
+		}
 		if (movement_path.Count == 0) { return actions; }
 		foreach (Coords2D coords in movement_path) { actions.Add (new Action (ActionType.Move, coords.toVector2 ())); }
 		foreach (EntranceNode node in world.entrances) {
 			Coords2D last_coords = movement_path [movement_path.Count - 1];
+			this.last_coords = last_coords;
 			if (Coords2D.getCoords (node.gameObject) == last_coords) {
 				switch (node.buildingEntranceDirection) {
 				case Direction.Up:
@@ -447,6 +457,15 @@ public class CitizenAI : MonoBehaviour
 			}
 		}
 		return cleaned;
+	}
+
+
+	Action getSpendAction(CitizenBehaviourElement element) {
+		if (element.objective.GetType () == typeof(SpendMoneyInfo)) {
+			SpendMoneyInfo info = (SpendMoneyInfo)(element.objective);
+			return new Action (ActionType.Spend, info.good_to_buy, info.money_to_spend, info.amount);
+		}
+		return new Action (ActionType.Wait, 0f);
 	}
 
 

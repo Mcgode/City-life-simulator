@@ -69,6 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   citizen: {fileID: 0}
+  current_status: 
+  additionnal_info: 
 --- !u!114 &114388243435363636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,12 +92,12 @@ MonoBehaviour:
   happieness: 1
   social_health: 1
   walk_speed: 3
-  job: {fileID: 0}
   home: {fileID: 0}
   ideal_money: 3000
-  sleep_attrition_rate: 0.001
-  hunger_attrition_rate: 0.002
+  sleep_attrition_rate: 0.005
+  hunger_attrition_rate: 0.008
   health_attrition_rate: 0.01
+  social_health_attrition_rate: 0.007
   current_coords:
     x: 0
     y: 1

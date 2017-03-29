@@ -82,6 +82,7 @@ public class Citizen : MonoBehaviour
 				makeInventoryAction ();
 				break;
 			case ActionType.Spend:
+				makeSpendAction ();
 				break;
 			}
 		} else {
@@ -130,6 +131,7 @@ public class Citizen : MonoBehaviour
 
 	// Deals with actions of type Inventory
 	void makeSpendAction() {
+		print ("Citizen " + id.ToString() + " is making a spend action");
 		inventory [current_action.item] += Mathf.Abs(current_action.inventory_change);
 		money -= Mathf.Abs(current_action.money_spent);
 		current_action = getNextAction ();

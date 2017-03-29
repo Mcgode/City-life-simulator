@@ -150,9 +150,9 @@ public class MakeBehaviourElements : MonoBehaviour
 			"Drink",
 			new List<CitizenBehaviourElement>() { get_drink },
 			BehaviourType.None,
-			0f,
+			1,
 			Items.Drink,
-			5f
+			3f
 		);
 		behaviour_list.Add (drink);
 
@@ -175,7 +175,7 @@ public class MakeBehaviourElements : MonoBehaviour
 
 		CitizenBehaviourElement discuss = new CitizenBehaviourElement (
 			"Discuss",
-			new List<CitizenBehaviourElement>() { get_drink, have_a_walk },
+			new List<CitizenBehaviourElement>() { drink, have_a_walk },
 			BehaviourType.None,
 			0f,
 			10f
