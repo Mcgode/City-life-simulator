@@ -67,8 +67,8 @@ public class CitizenSelect : MonoBehaviour
 		foreach (KeyValuePair<Items, int> kvp in citizen.inventory) {
 			text += "   " + kvp.Key.ToString () + ": " + kvp.Value.ToString() + "\n";
 		}
-		text += "\nAdditionnal info:\n" + citizen.ai.additionnal_info;
-		print ("Info: " + citizen.ai.additionnal_info);
+		/*text += "\nAdditionnal info:\n" + citizen.ai.additionnal_info;
+		print ("Info: " + citizen.ai.additionnal_info);*/
 		tooltip.text = text;
 	}
 

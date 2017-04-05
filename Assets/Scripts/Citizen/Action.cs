@@ -54,6 +54,12 @@ public class Action {
 		inventory_change = change;
 	}
 
+	public Action(ActionType action_type, CitizenStat affected_behaviour, float amount = 0.2f) {
+		type = action_type;
+		total_reward = amount;
+		reward = affected_behaviour;
+	}
+
 }
 
 
@@ -62,5 +68,6 @@ public enum ActionType
 	Move,
 	Wait,
 	Inventory,
-	Spend
+	Spend,
+	ReduceEfficiency
 }
